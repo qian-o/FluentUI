@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentUI.Design", "FluentUI.Design\FluentUI.Design.csproj", "{9E7D59C6-BE6B-4A69-863C-078F3C58BB82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentUI.Demo", "FluentUI.Demo\FluentUI.Demo.csproj", "{18BB0570-20A7-4940-8F61-C47659E9A7CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E7D59C6-BE6B-4A69-863C-078F3C58BB82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E7D59C6-BE6B-4A69-863C-078F3C58BB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E7D59C6-BE6B-4A69-863C-078F3C58BB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E7D59C6-BE6B-4A69-863C-078F3C58BB82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18BB0570-20A7-4940-8F61-C47659E9A7CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18BB0570-20A7-4940-8F61-C47659E9A7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18BB0570-20A7-4940-8F61-C47659E9A7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18BB0570-20A7-4940-8F61-C47659E9A7CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57EB2BEB-4227-4C8D-9803-4DD69EEEC1B1}
+	EndGlobalSection
+EndGlobal
