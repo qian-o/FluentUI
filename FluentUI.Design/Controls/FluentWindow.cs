@@ -3,6 +3,8 @@ using FluentUI.Design.Tools;
 using Microsoft.Win32;
 using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace FluentUI.Design.Controls
 {
@@ -36,6 +38,38 @@ namespace FluentUI.Design.Controls
 
             Resources.MergedDictionaries.Add(_themeResource);
             RefreshTheme();
+        }
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            UniformGrid uniformGrid = GetTemplateChild("AeroCaptionButtons") as UniformGrid;
+            foreach (object item in uniformGrid.Children)
+            {
+                if (item is Button button)
+                {
+                    button.Click += AeroCaption_Click;
+                }
+            }
+        }
+
+        private void AeroCaption_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+
+            if (button.Tag.ToString() == "Minimize")
+            {
+                WindowState = WindowState.Minimized;
+            }
+            else if (button.Tag.ToString() == "WindowState")
+            {
+                WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private static void OnRequestedThemeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

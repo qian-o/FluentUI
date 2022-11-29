@@ -2,6 +2,151 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:FluentUI.Design.Controls">
 
+    <Style x:Key="Minimize"
+           TargetType="{x:Type Button}">
+        <Setter Property="Width"
+                Value="46" />
+        <Setter Property="Background"
+                Value="{DynamicResource ColorSubtleBackground}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource ColorNeutralForeground2}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Line X1="0"
+                              Y1="0"
+                              X2="9.2"
+                              Y2="0"
+                              Stroke="{TemplateBinding Foreground}"
+                              StrokeThickness="1"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorSubtleBackgroundHover}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground2Hover}" />
+            </Trigger>
+            <Trigger Property="IsMouseCaptured"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorSubtleBackgroundPressed}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground2Pressed}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WindowState"
+           TargetType="{x:Type Button}">
+        <Setter Property="Width"
+                Value="46" />
+        <Setter Property="Background"
+                Value="{DynamicResource ColorSubtleBackground}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource ColorNeutralForeground2}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Path x:Name="Data"
+                              Stroke="{TemplateBinding Foreground}"
+                              StrokeThickness="1"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="M 0,0 L 9.2,0 9.2,9.2 0,9.2 Z" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}"
+                                     Value="Normal">
+                            <Setter TargetName="Data"
+                                    Property="Data"
+                                    Value="M 0,0 L 9.2,0 9.2,9.2 0,9.2 Z" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}"
+                                     Value="Maximized">
+                            <Setter TargetName="Data"
+                                    Property="Data"
+                                    Value="M 2.1,2.1 L 2.1,0 9.2,0 9.2,7.1 7.1,7.1 7.1,2.1 0,2.1 0,9.2 7.1,9.2 7.1,7.1" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorSubtleBackgroundHover}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground2Hover}" />
+            </Trigger>
+            <Trigger Property="IsMouseCaptured"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorSubtleBackgroundPressed}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground2Pressed}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="Close"
+           TargetType="{x:Type Button}">
+        <Setter Property="Width"
+                Value="46" />
+        <Setter Property="Background"
+                Value="{DynamicResource ColorPaletteRedBackground}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource ColorPaletteRedForeground}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Grid HorizontalAlignment="Center"
+                              VerticalAlignment="Center">
+                            <Line X1="9.2"
+                                  Y1="0"
+                                  X2="0"
+                                  Y2="9.2"
+                                  Stroke="{TemplateBinding Foreground}"
+                                  StrokeThickness="1" />
+                            <Line X1="0"
+                                  Y1="0"
+                                  X2="9.2"
+                                  Y2="9.2"
+                                  Stroke="{TemplateBinding Foreground}"
+                                  StrokeThickness="1" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorPaletteRedBackgroundHover}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorPaletteRedForegroundHover}" />
+            </Trigger>
+            <Trigger Property="IsMouseCaptured"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorPaletteRedBackgroundPressed}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorPaletteRedForegroundPressed}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style TargetType="{x:Type controls:FluentWindow}">
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
@@ -25,11 +170,18 @@
                                     <RowDefinition Height="30" />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <StackPanel Grid.Row="0"
-                                            Orientation="Horizontal"
-                                            HorizontalAlignment="Right"
-                                            WindowChrome.IsHitTestVisibleInChrome="True">
-                                </StackPanel>
+                                <UniformGrid x:Name="AeroCaptionButtons" Grid.Row="0"
+                                             Width="138"
+                                             HorizontalAlignment="Right"
+                                             Rows="1"
+                                             WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <Button Style="{StaticResource Minimize}"
+                                            Tag="Minimize" />
+                                    <Button Style="{StaticResource WindowState}"
+                                            Tag="WindowState" />
+                                    <Button Style="{StaticResource Close}"
+                                            Tag="Close" />
+                                </UniformGrid>
                                 <Border Grid.Row="1">
                                     <ContentPresenter Content="{TemplateBinding Content}" />
                                 </Border>

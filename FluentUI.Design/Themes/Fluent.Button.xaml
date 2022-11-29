@@ -26,29 +26,29 @@
                         <ContentPresenter Content="{TemplateBinding Content}"
                                           Margin="{TemplateBinding Padding}" />
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver"
-                                 Value="True">
-                            <Setter Property="Background"
-                                    Value="{DynamicResource ColorNeutralBackground1Hover}" />
-                            <Setter Property="BorderBrush"
-                                    Value="{DynamicResource ColorNeutralStroke1Hover}" />
-                            <Setter Property="Foreground"
-                                    Value="{DynamicResource ColorNeutralForeground1Hover}" />
-                        </Trigger>
-                        <Trigger Property="IsMouseCaptured"
-                                 Value="True">
-                            <Setter Property="Background"
-                                    Value="{DynamicResource ColorNeutralBackground1Pressed}" />
-                            <Setter Property="BorderBrush"
-                                    Value="{DynamicResource ColorNeutralStroke1Pressed}" />
-                            <Setter Property="Foreground"
-                                    Value="{DynamicResource ColorNeutralForeground1Pressed}" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorNeutralBackground1Hover}" />
+                <Setter Property="BorderBrush"
+                        Value="{DynamicResource ColorNeutralStroke1Hover}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground1Hover}" />
+            </Trigger>
+            <Trigger Property="IsMouseCaptured"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{DynamicResource ColorNeutralBackground1Pressed}" />
+                <Setter Property="BorderBrush"
+                        Value="{DynamicResource ColorNeutralStroke1Pressed}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground1Pressed}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
