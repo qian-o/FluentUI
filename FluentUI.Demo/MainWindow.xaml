@@ -9,11 +9,9 @@
                      Height="450"
                      Width="800"
                      x:Name="Main">
-    <Grid>
-        <TextBlock Text="123" />
-        <fluent:FluentButton HorizontalAlignment="Center"
-                             VerticalAlignment="Center"
-                             Content="{Binding ElementName=Main, Path=RequestedTheme}"
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        <fluent:FluentButton Content="{Binding ElementName=Main, Path=RequestedTheme}"
                              Click="Button_Click" />
-    </Grid>
+    </StackPanel>
 </fluent:FluentWindow>

@@ -7,9 +7,6 @@ namespace FluentUI.Demo
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
 
-        }
     }
 }

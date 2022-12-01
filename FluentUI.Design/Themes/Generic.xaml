@@ -4,5 +4,5 @@
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.Window.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.Button.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
+
 </ResourceDictionary>

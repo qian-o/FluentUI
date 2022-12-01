@@ -4,12 +4,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.Dark.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml" />
-            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

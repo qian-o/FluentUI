@@ -2,13 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:FluentUI.Design.Controls">
 
-    <Style TargetType="{x:Type controls:FluentButton}">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type controls:FluentButton}"
+           BasedOn="{StaticResource Body1}">
         <Setter Property="Background"
                 Value="{DynamicResource ColorNeutralBackground1}" />
         <Setter Property="BorderBrush"
                 Value="{DynamicResource ColorNeutralStroke1}" />
-        <Setter Property="Foreground"
-                Value="{DynamicResource ColorNeutralForeground1}" />
         <Setter Property="Padding"
                 Value="12,5,12,5" />
         <Setter Property="BorderThickness"
@@ -36,8 +40,6 @@
                         Value="{DynamicResource ColorNeutralBackground1Hover}" />
                 <Setter Property="BorderBrush"
                         Value="{DynamicResource ColorNeutralStroke1Hover}" />
-                <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground1Hover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
@@ -45,8 +47,6 @@
                         Value="{DynamicResource ColorNeutralBackground1Pressed}" />
                 <Setter Property="BorderBrush"
                         Value="{DynamicResource ColorNeutralStroke1Pressed}" />
-                <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground1Pressed}" />
             </Trigger>
         </Style.Triggers>
     </Style>

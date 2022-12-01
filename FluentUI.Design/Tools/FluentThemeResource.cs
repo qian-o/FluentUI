@@ -27,24 +27,16 @@ namespace FluentUI.Design.Tools
         {
             MergedDictionaries.Clear();
 
-            if (Theme == ElementTheme.Light)
-            {
-                MergedDictionaries.Add(new ResourceDictionary
-                {
-                    Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.Light.xaml")
-                });
-            }
-            else
-            {
-                MergedDictionaries.Add(new ResourceDictionary
-                {
-                    Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.Dark.xaml")
-                });
-            }
-            MergedDictionaries.Add(new ResourceDictionary
+            ResourceDictionary colorDictionary = new()
             {
                 Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml")
+            };
+            colorDictionary.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri(@$"pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.{Theme}.xaml")
             });
+
+            MergedDictionaries.Add(colorDictionary);
             MergedDictionaries.Add(new ResourceDictionary
             {
                 Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml")
