@@ -1,6 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Brush x:Key="ColorPrimarilyBackground">#202020</Brush>
+    <Brush x:Key="ColorPrimarilyForeground">#D6D6D6</Brush>
+
+    <Brush x:Key="ColorAeroCaptionBackground">Transparent</Brush>
+    <Brush x:Key="ColorAeroCaptionBackgroundHover">#373737</Brush>
+    <Brush x:Key="ColorAeroCaptionBackgroundPressed">#4D4D4D</Brush>
+    
     <Brush x:Key="ColorNeutralForeground2">#D6D6D6</Brush>
     <Brush x:Key="ColorNeutralForeground2Hover">#FFFFFF</Brush>
     <Brush x:Key="ColorNeutralForeground2Pressed">#FFFFFF</Brush>

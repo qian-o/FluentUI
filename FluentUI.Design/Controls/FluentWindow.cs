@@ -1,5 +1,4 @@
-﻿using FluentUI.Design.Enums;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
@@ -7,16 +6,6 @@ namespace FluentUI.Design.Controls
 {
     public class FluentWindow : Window
     {
-        #region 依赖属性
-        public static readonly DependencyProperty RequestedThemeProperty = DependencyProperty.Register(nameof(RequestedTheme), typeof(ElementTheme), typeof(FluentWindow), new PropertyMetadata(ElementTheme.Light));
-
-        public ElementTheme RequestedTheme
-        {
-            get => (ElementTheme)GetValue(RequestedThemeProperty);
-            internal set => SetValue(RequestedThemeProperty, value);
-        }
-        #endregion
-
         static FluentWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FluentWindow), new FrameworkPropertyMetadata(typeof(FluentWindow)));

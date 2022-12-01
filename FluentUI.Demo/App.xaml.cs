@@ -23,11 +23,11 @@ namespace FluentUI.Demo
                CreateDefaultBuilder().
                ConfigureServices(services =>
                {
-                   services.AddTransient<ShellPage>();
+                   services.AddSingleton<ShellPage>();
                    services.AddSingleton<ShellViewModel>();
-                   services.AddTransient<Page1>();
+                   services.AddSingleton<Page1>();
                    services.AddSingleton<Page1ViewModel>();
-                   services.AddTransient<Page2>();
+                   services.AddSingleton<Page2>();
                    services.AddSingleton<Page2ViewModel>();
                }).
                Build();
@@ -37,7 +37,7 @@ namespace FluentUI.Demo
         {
             Core.Initialize();
 
-            MainWindow.Content = GetService<ShellPage>();
+            MainWindow.FrameContent.Navigate(GetService<ShellPage>());
             MainWindow.Show();
         }
 

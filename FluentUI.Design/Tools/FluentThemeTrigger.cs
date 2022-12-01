@@ -1,5 +1,4 @@
-﻿using FluentUI.Design.Controls;
-using FluentUI.Design.Enums;
+﻿using FluentUI.Design.Enums;
 using System.Windows;
 using System.Windows.Data;
 
@@ -45,20 +44,10 @@ namespace FluentUI.Design.Tools
 
         private void GenerateProperty()
         {
-            RelativeSource relativeSource = new();
-            if (IsWindow)
-            {
-                relativeSource.Mode = RelativeSourceMode.Self;
-            }
-            else
-            {
-                relativeSource.AncestorType = typeof(FluentWindow);
-            }
-
             Binding = new Binding()
             {
-                RelativeSource = relativeSource,
-                Path = new PropertyPath(nameof(FluentWindow.RequestedTheme))
+                Source = Core.FluentThemeResource,
+                Path = new PropertyPath(nameof(FluentThemeResource.Theme))
             };
             Value = Theme;
         }

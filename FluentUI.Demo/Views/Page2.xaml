@@ -3,15 +3,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:viewmodels="clr-namespace:FluentUI.Demo.ViewModels"
+      xmlns:controls="clr-namespace:FluentUI.Design.Controls;assembly=FluentUI.Design"
       mc:Ignorable="d"
       d:DesignHeight="450"
       d:DesignWidth="800"
+      d:DataContext="{d:DesignInstance viewmodels:Page2ViewModel}"
       Title="Page2">
 
     <Grid>
-        <TextBlock Style="{DynamicResource Title1}"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Text="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=Title}" />
+        <controls:FluentButton HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Content="切换主题"
+                               Command="{Binding ToggleThemeCommand}" />
     </Grid>
 </Page>

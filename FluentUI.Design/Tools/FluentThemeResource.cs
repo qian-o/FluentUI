@@ -1,11 +1,14 @@
 ﻿using FluentUI.Design.Enums;
 using System;
+using System.ComponentModel;
 using System.Windows;
 
 namespace FluentUI.Design.Tools
 {
-    public class FluentThemeResource : ResourceDictionary
+    public class FluentThemeResource : ResourceDictionary, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private ElementTheme theme;
 
         public ElementTheme Theme
@@ -14,7 +17,9 @@ namespace FluentUI.Design.Tools
             set
             {
                 theme = value;
+
                 GenerateResource();
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Theme)));
             }
         }
 

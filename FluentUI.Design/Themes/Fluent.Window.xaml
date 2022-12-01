@@ -11,7 +11,7 @@
         <Setter Property="Width"
                 Value="46" />
         <Setter Property="Background"
-                Value="{DynamicResource ColorSubtleBackground}" />
+                Value="{DynamicResource ColorAeroCaptionBackground}" />
         <Setter Property="Foreground"
                 Value="{DynamicResource ColorNeutralForeground2}" />
         <Setter Property="Template">
@@ -34,14 +34,14 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorSubtleBackgroundHover}" />
+                        Value="{DynamicResource ColorAeroCaptionBackgroundHover}" />
                 <Setter Property="Foreground"
                         Value="{DynamicResource ColorNeutralForeground2Hover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorSubtleBackgroundPressed}" />
+                        Value="{DynamicResource ColorAeroCaptionBackgroundPressed}" />
                 <Setter Property="Foreground"
                         Value="{DynamicResource ColorNeutralForeground2Pressed}" />
             </Trigger>
@@ -53,7 +53,7 @@
         <Setter Property="Width"
                 Value="46" />
         <Setter Property="Background"
-                Value="{DynamicResource ColorSubtleBackground}" />
+                Value="{DynamicResource ColorAeroCaptionBackground}" />
         <Setter Property="Foreground"
                 Value="{DynamicResource ColorNeutralForeground2}" />
         <Setter Property="Template">
@@ -88,14 +88,14 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorSubtleBackgroundHover}" />
+                        Value="{DynamicResource ColorAeroCaptionBackgroundHover}" />
                 <Setter Property="Foreground"
                         Value="{DynamicResource ColorNeutralForeground2Hover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorSubtleBackgroundPressed}" />
+                        Value="{DynamicResource ColorAeroCaptionBackgroundPressed}" />
                 <Setter Property="Foreground"
                         Value="{DynamicResource ColorNeutralForeground2Pressed}" />
             </Trigger>
@@ -160,16 +160,16 @@
             </Setter.Value>
         </Setter>
         <Setter Property="Background"
-                Value="{DynamicResource ColorNeutralBackground1}" />
+                Value="{DynamicResource ColorPrimarilyBackground}" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorNeutralForeground1}" />
+                Value="{DynamicResource ColorPrimarilyForeground}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:FluentWindow}">
                     <Border>
-                        <Border x:Name="brdMain"
+                        <Border x:Name="BorderMain"
                                 Background="{TemplateBinding Background}">
-                            <Grid x:Name="grdMain">
+                            <Grid x:Name="GridMain">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="30" />
                                     <RowDefinition />
@@ -195,19 +195,19 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="WindowState"
                                  Value="Normal">
-                            <Setter TargetName="brdMain"
+                            <Setter TargetName="BorderMain"
                                     Property="Margin"
                                     Value="0" />
-                            <Setter TargetName="grdMain"
+                            <Setter TargetName="GridMain"
                                     Property="Margin"
                                     Value="0" />
                         </Trigger>
                         <Trigger Property="WindowState"
                                  Value="Maximized">
-                            <Setter TargetName="brdMain"
+                            <Setter TargetName="BorderMain"
                                     Property="Margin"
                                     Value="{x:Static SystemParameters.WindowResizeBorderThickness}" />
-                            <Setter TargetName="grdMain"
+                            <Setter TargetName="GridMain"
                                     Property="Margin"
                                     Value="4" />
                         </Trigger>

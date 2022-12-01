@@ -1,5 +1,4 @@
-﻿using FluentUI.Design.Controls;
-using FluentUI.Design.Enums;
+﻿using FluentUI.Design.Enums;
 using FluentUI.Design.Tools;
 using Microsoft.Win32;
 using System;
@@ -24,17 +23,7 @@ namespace FluentUI.Design
                 {
                     requestedTheme = value;
 
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        FluentThemeResource.Theme = value;
-                        foreach (object item in Application.Current.Windows)
-                        {
-                            if (item is FluentWindow window)
-                            {
-                                window.RequestedTheme = RequestedTheme;
-                            }
-                        }
-                    });
+                    RefreshTheme();
                 }
             }
         }
@@ -51,6 +40,8 @@ namespace FluentUI.Design
                 {
                     SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
                 }
+
+                IsInitialize = true;
             }
         }
 
@@ -61,6 +52,14 @@ namespace FluentUI.Design
                 RegistryKey registryKey = Registry.CurrentUser;
                 RegistryKey personalize = registryKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
                 RequestedTheme = Convert.ToBoolean(personalize.GetValue("AppsUseLightTheme")) ? ElementTheme.Light : ElementTheme.Dark;
+            });
+        }
+
+        private static void RefreshTheme()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                FluentThemeResource.Theme = RequestedTheme;
             });
         }
     }

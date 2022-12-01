@@ -6,6 +6,9 @@
                      xmlns:fluent="clr-namespace:FluentUI.Design.Controls;assembly=FluentUI.Design"
                      mc:Ignorable="d"
                      Title="MainWindow"
-                     Height="450"
-                     Width="800"
-                     WindowStartupLocation="CenterScreen" />
+                     MinWidth="960"
+                     MinHeight="600"
+                     WindowStartupLocation="CenterScreen">
+    <Frame x:Name="FrameContent"
+           NavigationUIVisibility="Hidden" />
+</fluent:FluentWindow>
