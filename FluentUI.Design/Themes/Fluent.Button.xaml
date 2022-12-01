@@ -22,6 +22,8 @@
                 Value="{DynamicResource ColorNeutralBackground1}" />
         <Setter Property="BorderBrush"
                 Value="{DynamicResource ColorNeutralStroke1}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource ColorNeutralForeground1}" />
         <Setter Property="Padding">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource ThicknessResourcesConvert}">
@@ -61,6 +63,8 @@
                         Value="{DynamicResource ColorNeutralBackground1Hover}" />
                 <Setter Property="BorderBrush"
                         Value="{DynamicResource ColorNeutralStroke1Hover}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground1Hover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
@@ -68,6 +72,8 @@
                         Value="{DynamicResource ColorNeutralBackground1Pressed}" />
                 <Setter Property="BorderBrush"
                         Value="{DynamicResource ColorNeutralStroke1Pressed}" />
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ColorNeutralForeground1Pressed}" />
             </Trigger>
         </Style.Triggers>
     </Style>
