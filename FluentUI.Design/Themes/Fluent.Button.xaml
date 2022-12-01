@@ -4,7 +4,7 @@
                     xmlns:converters="clr-namespace:FluentUI.Design.Converters">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentSize.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml" />
         <ResourceDictionary>

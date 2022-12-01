@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.Dark.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.Light.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.Dark.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.Light.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Brush x:Key="ColorPaletteRedBackground">Transparent</Brush>

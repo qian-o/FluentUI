@@ -29,22 +29,15 @@ namespace FluentUI.Design.Tools
 
             ResourceDictionary colorDictionary = new()
             {
-                Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml")
+                Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.xaml")
             };
+            colorDictionary.MergedDictionaries.Clear();
             colorDictionary.MergedDictionaries.Add(new ResourceDictionary
             {
-                Source = new Uri(@$"pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.{Theme}.xaml")
+                Source = new Uri(@$"pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.{Theme}.xaml")
             });
 
             MergedDictionaries.Add(colorDictionary);
-            MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentSize.xaml")
-            });
-            MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml")
-            });
         }
     }
 }

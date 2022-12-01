@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:FluentUI.Design.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="Minimized"
