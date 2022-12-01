@@ -58,7 +58,7 @@ namespace FluentUI.Design.Controls
         {
             Button button = sender as Button;
 
-            if (button.Tag.ToString() == "Minimize")
+            if (button.Tag.ToString() == "Minimized")
             {
                 WindowState = WindowState.Minimized;
             }

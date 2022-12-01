@@ -39,6 +39,10 @@ namespace FluentUI.Design.Tools
             MergedDictionaries.Add(colorDictionary);
             MergedDictionaries.Add(new ResourceDictionary
             {
+                Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentSize.xaml")
+            });
+            MergedDictionaries.Add(new ResourceDictionary
+            {
                 Source = new Uri(@"pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml")
             });
         }

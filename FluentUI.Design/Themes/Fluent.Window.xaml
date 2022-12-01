@@ -6,7 +6,7 @@
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="Minimize"
+    <Style x:Key="Minimized"
            TargetType="{x:Type Button}">
         <Setter Property="Width"
                 Value="46" />
@@ -179,8 +179,8 @@
                                              HorizontalAlignment="Right"
                                              Rows="1"
                                              WindowChrome.IsHitTestVisibleInChrome="True">
-                                    <Button Style="{StaticResource Minimize}"
-                                            Tag="Minimize" />
+                                    <Button Style="{StaticResource Minimized}"
+                                            Tag="Minimized" />
                                     <Button Style="{StaticResource WindowState}"
                                             Tag="WindowState" />
                                     <Button Style="{StaticResource Close}"

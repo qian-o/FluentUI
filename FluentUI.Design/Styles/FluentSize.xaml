@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:Double x:Key="SpacingVerticalNone">0</sys:Double>
+    <sys:Double x:Key="SpacingVerticalXXS">2</sys:Double>
+    <sys:Double x:Key="SpacingVerticalXS">4</sys:Double>
+    <sys:Double x:Key="SpacingVerticalSNudge">6</sys:Double>
+    <sys:Double x:Key="SpacingVerticalS">8</sys:Double>
+    <sys:Double x:Key="SpacingVerticalMNudge">10</sys:Double>
+    <sys:Double x:Key="SpacingVerticalM">12</sys:Double>
+    <sys:Double x:Key="SpacingVerticalL">16</sys:Double>
+    <sys:Double x:Key="SpacingVerticalXL">20</sys:Double>
+    <sys:Double x:Key="SpacingVerticalXXL">24</sys:Double>
+    <sys:Double x:Key="SpacingVerticalXXXL">32</sys:Double>
+
+    <sys:Double x:Key="SpacingHorizontalNone">0</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalXXS">2</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalXS">4</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalSNudge">6</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalS">8</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalMNudge">10</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalM">12</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalL">16</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalXL">20</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalXXL">24</sys:Double>
+    <sys:Double x:Key="SpacingHorizontalXXXL">32</sys:Double>
+
+    <sys:Double x:Key="StrokeWidthThin">1</sys:Double>
+    <sys:Double x:Key="StrokeWidthThick">2</sys:Double>
+    <sys:Double x:Key="StrokeWidthThicker">3</sys:Double>
+    <sys:Double x:Key="StrokeWidthThickest">4</sys:Double>
+
+    <CornerRadius x:Key="BorderRadiusNone">0</CornerRadius>
+    <CornerRadius x:Key="BorderRadiusSmall">2</CornerRadius>
+    <CornerRadius x:Key="BorderRadiusMedium">4</CornerRadius>
+    <CornerRadius x:Key="BorderRadiusLarge">6</CornerRadius>
+    <CornerRadius x:Key="BorderRadiusXLarge">8</CornerRadius>
+    <CornerRadius x:Key="BorderRadiusCircular">10000</CornerRadius>
+
+    <DropShadowEffect x:Key="DropShadowEffectBase"
+                      Direction="-90"
+                      ShadowDepth="2"
+                      BlurRadius="4"
+                      Color="#000000"
+                      Opacity="0.12" />
+    <DropShadowEffect x:Key="DropShadowEffectLight"
+                      Direction="-90"
+                      ShadowDepth="2"
+                      BlurRadius="12"
+                      Color="#000000"
+                      Opacity="0.1" />
+
+</ResourceDictionary>

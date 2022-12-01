@@ -36,205 +36,205 @@
     <Style x:Key="Body1"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase300}" />
+                Value="{DynamicResource FontSizeBase300}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightRegular}" />
+                Value="{DynamicResource FontWeightRegular}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase300}" />
+                Value="{DynamicResource LineHeightBase300}" />
     </Style>
 
     <Style x:Key="Body1Strong"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase300}" />
+                Value="{DynamicResource FontSizeBase300}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase300}" />
+                Value="{DynamicResource LineHeightBase300}" />
     </Style>
 
     <Style x:Key="Body1Stronger"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase300}" />
+                Value="{DynamicResource FontSizeBase300}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightBold}" />
+                Value="{DynamicResource FontWeightBold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase300}" />
+                Value="{DynamicResource LineHeightBase300}" />
     </Style>
 
     <Style x:Key="Body2"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase400}" />
+                Value="{DynamicResource FontSizeBase400}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightRegular}" />
+                Value="{DynamicResource FontWeightRegular}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase400}" />
+                Value="{DynamicResource LineHeightBase400}" />
     </Style>
 
     <Style x:Key="Caption1"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase200}" />
+                Value="{DynamicResource FontSizeBase200}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightRegular}" />
+                Value="{DynamicResource FontWeightRegular}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase200}" />
+                Value="{DynamicResource LineHeightBase200}" />
     </Style>
 
     <Style x:Key="Caption1Strong"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase200}" />
+                Value="{DynamicResource FontSizeBase200}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase200}" />
+                Value="{DynamicResource LineHeightBase200}" />
     </Style>
 
     <Style x:Key="Caption1Stronger"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase200}" />
+                Value="{DynamicResource FontSizeBase200}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightBold}" />
+                Value="{DynamicResource FontWeightBold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase200}" />
+                Value="{DynamicResource LineHeightBase200}" />
     </Style>
 
     <Style x:Key="Caption2"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase100}" />
+                Value="{DynamicResource FontSizeBase100}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightRegular}" />
+                Value="{DynamicResource FontWeightRegular}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase100}" />
+                Value="{DynamicResource LineHeightBase100}" />
     </Style>
 
     <Style x:Key="Caption2Strong"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase100}" />
+                Value="{DynamicResource FontSizeBase100}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase100}" />
+                Value="{DynamicResource LineHeightBase100}" />
     </Style>
 
     <Style x:Key="Subtitle1"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase500}" />
+                Value="{DynamicResource FontSizeBase500}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase500}" />
+                Value="{DynamicResource LineHeightBase500}" />
     </Style>
 
     <Style x:Key="Subtitle2"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase400}" />
+                Value="{DynamicResource FontSizeBase400}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase400}" />
+                Value="{DynamicResource LineHeightBase400}" />
     </Style>
 
     <Style x:Key="Subtitle2Stronger"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase400}" />
+                Value="{DynamicResource FontSizeBase400}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightBold}" />
+                Value="{DynamicResource FontWeightBold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase400}" />
+                Value="{DynamicResource LineHeightBase400}" />
     </Style>
 
     <Style x:Key="Title1"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeHero800}" />
+                Value="{DynamicResource FontSizeHero800}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightHero800}" />
+                Value="{DynamicResource LineHeightHero800}" />
     </Style>
 
     <Style x:Key="Title2"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeHero700}" />
+                Value="{DynamicResource FontSizeHero700}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightHero700}" />
+                Value="{DynamicResource LineHeightHero700}" />
     </Style>
 
     <Style x:Key="Title3"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeBase600}" />
+                Value="{DynamicResource FontSizeBase600}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightBase600}" />
+                Value="{DynamicResource LineHeightBase600}" />
     </Style>
 
     <Style x:Key="LargeTitle"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeHero900}" />
+                Value="{DynamicResource FontSizeHero900}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightHero900}" />
+                Value="{DynamicResource LineHeightHero900}" />
     </Style>
 
     <Style x:Key="Display"
            TargetType="{x:Type FrameworkElement}">
         <Setter Property="TextElement.FontFamily"
-                Value="{StaticResource FontFamilyBase}" />
+                Value="{DynamicResource FontFamilyBase}" />
         <Setter Property="TextElement.FontSize"
-                Value="{StaticResource FontSizeHero1000}" />
+                Value="{DynamicResource FontSizeHero1000}" />
         <Setter Property="TextElement.FontWeight"
-                Value="{StaticResource FontWeightSemibold}" />
+                Value="{DynamicResource FontWeightSemibold}" />
         <Setter Property="TextBlock.LineHeight"
-                Value="{StaticResource LineHeightHero1000}" />
+                Value="{DynamicResource LineHeightHero1000}" />
     </Style>
 
 </ResourceDictionary>

@@ -1,24 +1,43 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:FluentUI.Design.Controls">
+                    xmlns:controls="clr-namespace:FluentUI.Design.Controls"
+                    xmlns:converters="clr-namespace:FluentUI.Design.Converters">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentSize.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml" />
+        <ResourceDictionary>
+            <converters:ThicknessResourcesConvert x:Key="ThicknessResourcesConvert" />
+        </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type controls:FluentButton}"
            BasedOn="{StaticResource Body1}">
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
         <Setter Property="Background"
                 Value="{DynamicResource ColorNeutralBackground1}" />
         <Setter Property="BorderBrush"
                 Value="{DynamicResource ColorNeutralStroke1}" />
-        <Setter Property="Padding"
-                Value="12,5,12,5" />
+        <Setter Property="Padding">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource ThicknessResourcesConvert}">
+                    <MultiBinding.Bindings>
+                        <Binding Source="{StaticResource SpacingHorizontalM}" />
+                        <Binding Source="5" />
+                        <Binding Source="{StaticResource SpacingHorizontalM}" />
+                        <Binding Source="5" />
+                    </MultiBinding.Bindings>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
         <Setter Property="BorderThickness"
-                Value="1" />
+                Value="{Binding Source={StaticResource StrokeWidthThin}}" />
         <Setter Property="CornerRadius"
-                Value="4" />
+                Value="{DynamicResource BorderRadiusMedium}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:FluentButton}">
@@ -28,6 +47,8 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             Cursor="{TemplateBinding Cursor}">
                         <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Margin="{TemplateBinding Padding}" />
                     </Border>
                 </ControlTemplate>
