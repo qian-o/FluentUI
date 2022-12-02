@@ -5,7 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentSize.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentMotionSize.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml" />
                 <tools:FluentThemeResource />
             </ResourceDictionary.MergedDictionaries>

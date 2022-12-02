@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace FluentUI.Design.Controls
 {
@@ -7,10 +9,14 @@ namespace FluentUI.Design.Controls
     {
         #region Constant
         private const string FrameContent = "FrameContent";
+        private const string ExcessivePageHide = "ExcessivePageHide";
+        private const string ExcessivePageShow = "ExcessivePageShow";
         #endregion
 
         #region Variable
         private Frame _frameContent;
+        private Storyboard _excessivePageHide;
+        private Storyboard _excessivePageShow;
         #endregion
 
         #region DependencyProperty
@@ -31,6 +37,8 @@ namespace FluentUI.Design.Controls
         public override void OnApplyTemplate()
         {
             _frameContent = GetTemplateChild(FrameContent) as Frame;
+            _excessivePageHide = _frameContent.Resources[ExcessivePageHide] as Storyboard;
+            _excessivePageShow = _frameContent.Resources[ExcessivePageShow] as Storyboard;
 
             NavigatePage();
         }
@@ -46,11 +54,14 @@ namespace FluentUI.Design.Controls
         /// <summary>
         /// Navigate to the specified page
         /// </summary>
-        private void NavigatePage()
+        private async void NavigatePage()
         {
             if (_frameContent != null && PageContent != null)
             {
+                _excessivePageHide.Begin(_frameContent);
+                await Task.Delay(150);
                 _frameContent.Navigate(PageContent);
+                _excessivePageShow.Begin(_frameContent);
             }
         }
     }

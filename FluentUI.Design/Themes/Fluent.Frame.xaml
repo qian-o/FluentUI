@@ -2,14 +2,60 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:FluentUI.Design.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentMotionSize.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style TargetType="{x:Type controls:FluentFrame}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:FluentFrame}">
-                    <Frame x:Name="FrameContent" NavigationUIVisibility="Hidden" />
+                    <Border ClipToBounds="True">
+                        <Frame x:Name="FrameContent"
+                               NavigationUIVisibility="Hidden">
+                            <Frame.Resources>
+                                <Storyboard x:Key="ExcessivePageHide">
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                     From="1"
+                                                     To="0.5"
+                                                     Duration="{StaticResource DurationFast}" />
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                     From="1"
+                                                     To="0.5"
+                                                     Duration="{StaticResource DurationFast}" />
+                                    <DoubleAnimation Storyboard.TargetName="FrameContent"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     From="1"
+                                                     To="0"
+                                                     Duration="{StaticResource DurationFast}" />
+                                </Storyboard>
+                                <Storyboard x:Key="ExcessivePageShow">
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                     From="1.2"
+                                                     To="1"
+                                                     Duration="{StaticResource DurationFast}" />
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                     From="1.2"
+                                                     To="1"
+                                                     Duration="{StaticResource DurationFast}" />
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     From="0"
+                                                     To="1"
+                                                     Duration="{StaticResource DurationFast}" />
+                                </Storyboard>
+                            </Frame.Resources>
+                            <Frame.RenderTransform>
+                                <ScaleTransform />
+                            </Frame.RenderTransform>
+                            <Frame.RenderTransformOrigin>
+                                <Point X="0.5"
+                                       Y="0.25" />
+                            </Frame.RenderTransformOrigin>
+                        </Frame>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

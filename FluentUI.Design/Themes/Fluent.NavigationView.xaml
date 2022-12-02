@@ -2,25 +2,45 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:FluentUI.Design.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentMotionSize.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentTypography.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style TargetType="{x:Type controls:NavigationView}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:NavigationView}">
                     <Grid x:Name="Main">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition x:Name="ColumnPane" MaxWidth="{TemplateBinding OpenPaneLength}" />
+                            <ColumnDefinition x:Name="ColumnPane"
+                                              Width="Auto" />
                             <ColumnDefinition x:Name="ColumnContent" />
                         </Grid.ColumnDefinitions>
-                        <ContentControl Content="{TemplateBinding Content}" />
+                        <Border x:Name="Pane"
+                                Grid.Column="0"
+                                Margin="5,0,5,0">
+                            <DockPanel>
+                                <controls:NavigationViewItem x:Name="FoldPane"
+                                                             FontFamily="{DynamicResource FontFamilyIcon}"
+                                                             Icon="&#xE700;"
+                                                             Tag="Fold"
+                                                             DockPanel.Dock="Top" />
+                                <controls:FluentScrollViewer>
+                                    <ItemsControl ItemsSource="{TemplateBinding MenuItems}" />
+                                </controls:FluentScrollViewer>
+                            </DockPanel>
+                        </Border>
+                        <Border x:Name="Content"
+                                Grid.Column="1"
+                                Background="{DynamicResource ColorNeutralBackground1}"
+                                BorderBrush="{DynamicResource ColorNeutralStroke1}"
+                                BorderThickness="1,1,0,0"
+                                CornerRadius="6,0,0,0">
+                            <ContentControl Content="{TemplateBinding Content}" />
+                        </Border>
                     </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="DisplayMode"
-                                 Value="Overlay">
-                            <Setter TargetName="ColumnPane"
-                                    Property="MinWidth"
-                                    Value="0" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -9,5 +9,38 @@
                      MinWidth="960"
                      MinHeight="600"
                      WindowStartupLocation="CenterScreen">
-    <fluent:FluentFrame x:Name="FrameContent" />
+    <Grid>
+        <fluent:FluentFrame x:Name="FrameContent"
+                            Visibility="Collapsed" />
+        <fluent:NavigationView x:Name="Navigation">
+            <fluent:NavigationView.MenuItems>
+                <fluent:NavigationViewItem FontFamily="{DynamicResource FontFamilyIcon}"
+                                           Icon="&#xF56E;"
+                                           Content="Page1" />
+                <fluent:NavigationViewItem FontFamily="{DynamicResource FontFamilyIcon}"
+                                           Icon="&#xF56E;"
+                                           Content="Page2" />
+                <fluent:NavigationViewItem FontFamily="{DynamicResource FontFamilyIcon}"
+                                           Icon="&#xF56E;"
+                                           Content="Page3">
+                    <fluent:NavigationViewItem.MenuItems>
+                        <fluent:NavigationViewItem FontFamily="{DynamicResource FontFamilyIcon}"
+                                                   Icon="&#xF56E;"
+                                                   Content="Item1" />
+                        <fluent:NavigationViewItem FontFamily="{DynamicResource FontFamilyIcon}"
+                                                   Icon="&#xF56E;"
+                                                   Content="Item1" />
+                    </fluent:NavigationViewItem.MenuItems>
+                </fluent:NavigationViewItem>
+            </fluent:NavigationView.MenuItems>
+            <fluent:NavigationView.Content>
+                <Grid>
+                    <fluent:FluentButton HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Content="Select"
+                                         Click="Button_Click" />
+                </Grid>
+            </fluent:NavigationView.Content>
+        </fluent:NavigationView>
+    </Grid>
 </fluent:FluentWindow>

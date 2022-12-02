@@ -2,6 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <Duration x:Key="DurationUltraFast">0:0:0.05</Duration>
+    <Duration x:Key="DurationFaster">0:0:0.1</Duration>
+    <Duration x:Key="DurationFast">0:0:0.15</Duration>
+    <Duration x:Key="DurationNormal">0:0:0.2</Duration>
+    <Duration x:Key="DurationSlow">0:0:0.3</Duration>
+    <Duration x:Key="DurationSlower">0:0:0.4</Duration>
+    <Duration x:Key="DurationUltraSlow">0:0:0.5</Duration>
+
     <sys:Double x:Key="SpacingVerticalNone">0</sys:Double>
     <sys:Double x:Key="SpacingVerticalXXS">2</sys:Double>
     <sys:Double x:Key="SpacingVerticalXS">4</sys:Double>

@@ -1,4 +1,5 @@
 ﻿using FluentUI.Design.Controls;
+using System.Windows;
 
 namespace FluentUI.Demo
 {
@@ -7,6 +8,18 @@ namespace FluentUI.Demo
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Navigation.SelectItem == null)
+            {
+                Navigation.SelectItem = Navigation.MenuItems[0];
+            }
+            else
+            {
+                Navigation.SelectItem = null;
+            }
         }
     }
 }

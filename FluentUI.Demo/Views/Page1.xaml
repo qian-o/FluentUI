@@ -11,7 +11,8 @@
       d:DesignHeight="450"
       d:DesignWidth="800"
       d:DataContext="{d:DesignInstance viewmodels:Page1ViewModel}"
-      Title="Page1">
+      Title="Page1"
+      Background="AliceBlue">
     <behaviors:Interaction.Triggers>
         <behaviors:EventTrigger>
             <behaviors:InvokeCommandAction Command="{Binding LoadedCommand}" />
@@ -70,7 +71,8 @@
                     VerticalAlignment="Center">
             <controls:FluentButton Content="Add"
                                    Command="{Binding ClickCountAddCommand}" />
-            <controls:FluentButton Margin="0,5,0,0" Content="To Page2"
+            <controls:FluentButton Margin="0,5,0,0"
+                                   Content="To Page2"
                                    Command="{Binding GoToPage2Command}" />
         </StackPanel>
     </DockPanel>

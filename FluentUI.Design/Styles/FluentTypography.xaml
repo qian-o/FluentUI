@@ -5,6 +5,7 @@
     <FontFamily x:Key="FontFamilyBase">Segoe UI</FontFamily>
     <FontFamily x:Key="FontFamilyMonospace">Consolas</FontFamily>
     <FontFamily x:Key="FontFamilyNumeric">Bahnschrift</FontFamily>
+    <FontFamily x:Key="FontFamilyIcon">Segoe MDL2 Assets</FontFamily>
 
     <sys:Double x:Key="FontSizeBase100">10</sys:Double>
     <sys:Double x:Key="FontSizeBase200">12</sys:Double>
