@@ -13,8 +13,6 @@ namespace FluentUI.Design.Controls
 
         public override void OnApplyTemplate()
         {
-            base.OnApplyTemplate();
-
             UniformGrid uniformGrid = GetTemplateChild("AeroCaptionButtons") as UniformGrid;
             foreach (object item in uniformGrid.Children)
             {

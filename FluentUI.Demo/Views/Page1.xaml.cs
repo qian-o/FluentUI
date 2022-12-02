@@ -10,9 +10,9 @@ namespace FluentUI.Demo.Views
     {
         public Page1()
         {
-            InitializeComponent();
-
             DataContext = App.GetViewModel<Page1, Page1ViewModel>(this);
+
+            InitializeComponent();
         }
     }
 }

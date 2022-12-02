@@ -10,9 +10,9 @@ namespace FluentUI.Demo.Views
     {
         public ShellPage()
         {
-            InitializeComponent();
-
             DataContext = App.GetViewModel<ShellPage, ShellViewModel>(this);
+
+            InitializeComponent();
         }
     }
 }

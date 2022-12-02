@@ -5,13 +5,15 @@ namespace FluentUI.Design.Controls
 {
     public class FluentButton : Button
     {
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(FluentButton), new PropertyMetadata(new CornerRadius(0)));
+        #region DependencyProperty
+        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(FluentButton), new PropertyMetadata(new CornerRadius(0)));
 
         public CornerRadius CornerRadius
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
             set { SetValue(CornerRadiusProperty, value); }
         }
+        #endregion
 
         static FluentButton()
         {

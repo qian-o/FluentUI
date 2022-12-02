@@ -50,8 +50,6 @@ namespace FluentUI.Demo.ViewModels
                 item.IsSelect = false;
             }
             Select.IsSelect = true;
-
-            Page.Body.Navigate(Select.Page);
         }
 
         private void RegisterNavigationPageMessage(object recipient, NavigationPageMessage message)

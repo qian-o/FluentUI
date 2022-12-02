@@ -9,6 +9,5 @@
                      MinWidth="960"
                      MinHeight="600"
                      WindowStartupLocation="CenterScreen">
-    <Frame x:Name="FrameContent"
-           NavigationUIVisibility="Hidden" />
+    <fluent:FluentFrame x:Name="FrameContent" />
 </fluent:FluentWindow>

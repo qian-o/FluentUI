@@ -2,13 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:FluentUI.Design.Controls">
 
-    <Style TargetType="{x:Type controls:SplitView}">
+    <Style TargetType="{x:Type controls:FluentFrame}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type controls:SplitView}">
-                    <Border Background="Red">
-                        
-                    </Border>
+                <ControlTemplate TargetType="{x:Type controls:FluentFrame}">
+                    <Frame x:Name="FrameContent" NavigationUIVisibility="Hidden" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

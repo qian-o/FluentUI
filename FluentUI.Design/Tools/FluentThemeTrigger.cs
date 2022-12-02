@@ -6,12 +6,12 @@ namespace FluentUI.Design.Tools
 {
     public class FluentThemeTrigger : DataTrigger
     {
-        #region 属性
+        #region Property
         private bool isWindow;
         private ElementTheme theme;
 
         /// <summary>
-        /// 是否为窗体
+        /// Is Window
         /// </summary>
         public bool IsWindow
         {
@@ -22,9 +22,8 @@ namespace FluentUI.Design.Tools
                 GenerateProperty();
             }
         }
-
         /// <summary>
-        /// 主题
+        /// Theme
         /// </summary>
         public ElementTheme Theme
         {

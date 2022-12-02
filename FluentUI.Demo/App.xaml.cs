@@ -37,7 +37,7 @@ namespace FluentUI.Demo
         {
             Core.Initialize();
 
-            MainWindow.FrameContent.Navigate(GetService<ShellPage>());
+            MainWindow.FrameContent.PageContent = GetService<ShellPage>();
             MainWindow.Show();
         }
 
