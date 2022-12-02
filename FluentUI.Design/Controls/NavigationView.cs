@@ -1,8 +1,10 @@
 ﻿using FluentUI.Design.Tools;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media.Animation;
 
 namespace FluentUI.Design.Controls
 {
@@ -77,6 +79,11 @@ namespace FluentUI.Design.Controls
             _foldPane.AddPointerUpHandler((a, b) => IsPaneOpen = !IsPaneOpen);
         }
 
+        /// <summary>
+        /// Operation width after state switching
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
         private static void OnIsPaneOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is NavigationView navigationView)
@@ -85,9 +92,35 @@ namespace FluentUI.Design.Controls
             }
         }
 
+        /// <summary>
+        /// Set the actual width of the Pane
+        /// </summary>
         private void SetPaneActualWidth()
         {
-            _pane?.SetBinding(WidthProperty, new Binding { Source = this, Path = new PropertyPath(IsPaneOpen ? nameof(OpenPaneLength) : nameof(CompactPaneLength)) });
+            if (_pane != null)
+            {
+                double currentWidth = _pane.Width;
+                double toWidth = IsPaneOpen ? OpenPaneLength : CompactPaneLength;
+                if (double.IsNaN(currentWidth))
+                {
+                    _pane.SetBinding(WidthProperty, new Binding { Source = this, Path = new PropertyPath(IsPaneOpen ? nameof(OpenPaneLength) : nameof(CompactPaneLength)) });
+                }
+                else
+                {
+                    BindingOperations.ClearBinding(_pane, WidthProperty);
+                    DoubleAnimation doubleAnimation = new()
+                    {
+                        From = currentWidth,
+                        To = toWidth,
+                        Duration = new TimeSpan(0, 0, 0, 0, 80)
+                    };
+                    doubleAnimation.Completed += delegate
+                    {
+                        _pane.SetBinding(WidthProperty, new Binding { Source = this, Path = new PropertyPath(IsPaneOpen ? nameof(OpenPaneLength) : nameof(CompactPaneLength)) });
+                    };
+                    _pane.BeginAnimation(WidthProperty, doubleAnimation);
+                }
+            }
         }
     }
 }

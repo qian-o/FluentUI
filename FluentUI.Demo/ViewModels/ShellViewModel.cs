@@ -1,34 +1,40 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-using FluentUI.Demo.Models;
 using FluentUI.Demo.Models.Messages;
 using FluentUI.Demo.Views;
+using FluentUI.Design.Controls;
 using FluentUI.Design.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
+using System.Windows.Media;
 
 namespace FluentUI.Demo.ViewModels
 {
     public partial class ShellViewModel : BaseViewModel<ShellPage>
     {
         [ObservableProperty]
-        private ObservableCollection<PageModel> pages = new();
+        private ObservableCollection<NavigationViewItem> pages = new();
 
         [ObservableProperty]
-        private PageModel select;
+        private NavigationViewItem selected;
 
         public ShellViewModel()
         {
-            pages.Add(new PageModel
+            Pages.Add(new NavigationViewItem
             {
-                Icon = "📄",
-                Page = App.GetService<Page1>()
+                FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
+                Icon = "\uF56E",
+                Content = "Page1",
+                Tag = App.GetService<Page1>()
             });
-            pages.Add(new PageModel
+            Pages.Add(new NavigationViewItem
             {
-                Icon = "📄",
-                Page = App.GetService<Page2>()
+                FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
+                Icon = "\uF56E",
+                Content = "Page2",
+                Tag = App.GetService<Page2>()
             });
 
             Messenger.Register<NavigationPageMessage>(this, RegisterNavigationPageMessage);
@@ -37,26 +43,19 @@ namespace FluentUI.Demo.ViewModels
         [RelayCommand]
         private void Loaded()
         {
-            SelectPage(pages[0]);
+            Selected = Pages[0];
         }
 
-        [RelayCommand]
-        private void SelectPage(PageModel pageModel)
+        partial void OnSelectedChanged(NavigationViewItem value)
         {
-            Select = pageModel;
-
-            foreach (PageModel item in Pages)
-            {
-                item.IsSelect = false;
-            }
-            Select.IsSelect = true;
+            Page.FrameContent.PageContent = value.Tag as System.Windows.Controls.Page;
         }
 
         private void RegisterNavigationPageMessage(object recipient, NavigationPageMessage message)
         {
-            if (Pages.FirstOrDefault(item => item.Page.GetType() == message.Value) is PageModel pageModel)
+            if (Pages.FirstOrDefault(item => item.Tag.GetType() == message.Value) is NavigationViewItem navigationViewItem)
             {
-                SelectPage(pageModel);
+                Selected = navigationViewItem;
             }
         }
     }

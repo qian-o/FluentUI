@@ -9,13 +9,18 @@
       d:DesignHeight="450"
       d:DesignWidth="800"
       d:DataContext="{d:DesignInstance viewmodels:Page2ViewModel}"
-      Title="Page2"
-      Background="AntiqueWhite">
+      Title="Page2">
 
     <Grid>
-        <controls:FluentButton HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Content="切换主题"
-                               Command="{Binding ToggleThemeCommand}" />
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <controls:FluentButton HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Content="ToggleTheme"
+                                   Command="{Binding ToggleThemeCommand}" />
+            <controls:FluentButton Margin="0,5,0,0"
+                                   Content="To Page1"
+                                   Command="{Binding GoToPage1Command}" />
+        </StackPanel>
     </Grid>
 </Page>

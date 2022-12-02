@@ -1,4 +1,5 @@
-﻿using FluentUI.Design.Controls;
+﻿using FluentUI.Design;
+using FluentUI.Design.Controls;
 using System.Windows;
 
 namespace FluentUI.Demo
@@ -12,13 +13,13 @@ namespace FluentUI.Demo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Navigation.SelectItem == null)
+            if (Core.RequestedTheme == Design.Enums.ElementTheme.Light)
             {
-                Navigation.SelectItem = Navigation.MenuItems[0];
+                Core.RequestedTheme = Design.Enums.ElementTheme.Dark;
             }
             else
             {
-                Navigation.SelectItem = null;
+                Core.RequestedTheme = Design.Enums.ElementTheme.Light;
             }
         }
     }

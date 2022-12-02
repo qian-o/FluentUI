@@ -5,7 +5,7 @@
       xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:viewmodels="clr-namespace:FluentUI.Demo.ViewModels"
-      xmlns:controls="clr-namespace:FluentUI.Design.Controls;assembly=FluentUI.Design"
+      xmlns:fluent="clr-namespace:FluentUI.Design.Controls;assembly=FluentUI.Design"
       mc:Ignorable="d"
       d:DesignHeight="450"
       d:DesignWidth="800"
@@ -16,124 +16,11 @@
             <behaviors:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </behaviors:EventTrigger>
     </behaviors:Interaction.Triggers>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0"
-                    Margin="4,0,4,0">
-            <Border Height="68">
-                <TextBlock Style="{DynamicResource Title3}"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Text="NavigationView" />
-            </Border>
-            <ItemsControl ItemsSource="{Binding Pages}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border Height="40"
-                                CornerRadius="3"
-                                Margin="0,0,0,5">
-                            <behaviors:Interaction.Triggers>
-                                <behaviors:EventTrigger EventName="MouseLeftButtonUp">
-                                    <behaviors:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.SelectPageCommand}"
-                                                                   CommandParameter="{Binding}" />
-                                </behaviors:EventTrigger>
-                            </behaviors:Interaction.Triggers>
-                            <Border.Style>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="Background"
-                                            Value="Transparent" />
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver"
-                                                 Value="True">
-                                            <Setter Property="Background"
-                                                    Value="#4DD3D3D3" />
-                                        </Trigger>
-                                        <DataTrigger Binding="{Binding IsSelect}"
-                                                     Value="True">
-                                            <Setter Property="Background"
-                                                    Value="#4DD3D3D3" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Border.Style>
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="0,0,5,0"
-                                        TextBlock.FontFamily="{DynamicResource FontFamilyBase}">
-                                <Border Width="3"
-                                        Height="20"
-                                        VerticalAlignment="Center"
-                                        Background="#4CC2FF"
-                                        CornerRadius="2.5">
-                                    <Border.RenderTransform>
-                                        <ScaleTransform ScaleY="0" />
-                                    </Border.RenderTransform>
-                                    <Border.RenderTransformOrigin>
-                                        <Point X="0.5"
-                                               Y="0.5" />
-                                    </Border.RenderTransformOrigin>
-                                    <Border.Style>
-                                        <Style TargetType="{x:Type Border}">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsSelect}"
-                                                             Value="True">
-                                                    <DataTrigger.EnterActions>
-                                                        <BeginStoryboard>
-                                                            <Storyboard>
-                                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
-                                                                                 From="0"
-                                                                                 To="1"
-                                                                                 Duration="0:0:0.08" />
-                                                            </Storyboard>
-                                                        </BeginStoryboard>
-                                                    </DataTrigger.EnterActions>
-                                                    <DataTrigger.ExitActions>
-                                                        <BeginStoryboard>
-                                                            <Storyboard>
-                                                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
-                                                                                 From="1"
-                                                                                 To="0"
-                                                                                 Duration="0:0:0.08" />
-                                                            </Storyboard>
-                                                        </BeginStoryboard>
-                                                    </DataTrigger.ExitActions>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Border.Style>
-                                </Border>
-                                <TextBlock VerticalAlignment="Center"
-                                           Margin="10,0,0,0"
-                                           FontSize="18"
-                                           Text="{Binding Icon}" />
-                                <TextBlock VerticalAlignment="Center"
-                                           Margin="10,0,0,0"
-                                           FontSize="15"
-                                           Text="{Binding Page.Title}" />
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
-        <Border Grid.Column="1"
-                Background="{DynamicResource ColorNeutralBackground1}"
-                BorderBrush="{DynamicResource ColorNeutralStroke1}"
-                BorderThickness="1,1,0,0"
-                CornerRadius="6,0,0,0">
-            <DockPanel>
-                <Border x:Name="Head"
-                        Height="68"
-                        DockPanel.Dock="Top">
-                    <TextBlock Style="{DynamicResource Title2}"
-                               Margin="40,20,0,0"
-                               Text="{Binding Select.Page.Title}" />
-                </Border>
-                <controls:FluentFrame x:Name="Body"
-                                      PageContent="{Binding Select.Page}" />
-            </DockPanel>
-        </Border>
-    </Grid>
+    <fluent:NavigationView MenuItems="{Binding Pages}"
+                           SelectItem="{Binding Selected, Mode=TwoWay}">
+        <fluent:NavigationView.Content>
+            <fluent:FluentFrame x:Name="FrameContent"
+                                Margin="20" />
+        </fluent:NavigationView.Content>
+    </fluent:NavigationView>
 </Page>

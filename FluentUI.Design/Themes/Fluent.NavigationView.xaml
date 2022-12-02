@@ -12,7 +12,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:NavigationView}">
-                    <Grid x:Name="Main">
+                    <Grid x:Name="Main"
+                          Background="{DynamicResource ColorPrimarilyBackground}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="ColumnPane"
                                               Width="Auto" />
