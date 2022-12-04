@@ -3,7 +3,6 @@ using FluentUI.Design.Tools;
 using Microsoft.Win32;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace FluentUI.Design
@@ -36,6 +35,7 @@ namespace FluentUI.Design
             {
                 FluentThemeResource = Application.Current.Resources.MergedDictionaries.FirstOrDefault(item => item.GetType() == typeof(FluentThemeResource)) as FluentThemeResource;
 
+                SystemEvents_UserPreferenceChanged(null, null);
                 if (Environment.OSVersion.Version.Build > 17763)
                 {
                     SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
@@ -47,12 +47,9 @@ namespace FluentUI.Design
 
         private static void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
         {
-            Task.Run(() =>
-            {
-                RegistryKey registryKey = Registry.CurrentUser;
-                RegistryKey personalize = registryKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
-                RequestedTheme = Convert.ToBoolean(personalize.GetValue("AppsUseLightTheme")) ? ElementTheme.Light : ElementTheme.Dark;
-            });
+            RegistryKey registryKey = Registry.CurrentUser;
+            RegistryKey personalize = registryKey.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+            RequestedTheme = Convert.ToBoolean(personalize.GetValue("AppsUseLightTheme")) ? ElementTheme.Light : ElementTheme.Dark;
         }
 
         private static void RefreshTheme()

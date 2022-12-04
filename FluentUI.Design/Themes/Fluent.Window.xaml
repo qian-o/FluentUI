@@ -162,7 +162,7 @@
         <Setter Property="Background"
                 Value="{DynamicResource ColorPrimarilyBackground}" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorPrimarilyForeground}"/>
+                Value="{DynamicResource ColorPrimarilyForeground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:FluentWindow}">
@@ -174,7 +174,8 @@
                                     <RowDefinition Height="30" />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <UniformGrid x:Name="AeroCaptionButtons" Grid.Row="0"
+                                <UniformGrid x:Name="AeroCaptionButtons"
+                                             Grid.Row="0"
                                              Width="138"
                                              HorizontalAlignment="Right"
                                              Rows="1"

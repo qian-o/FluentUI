@@ -49,7 +49,7 @@ namespace FluentUI.Demo.ViewModels
                 FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
                 Icon = "\uE722",
                 Content = "Camera",
-                Tag = new Page
+                Tag = new FluentPage
                 {
                     Content = new TextBlock
                     {
@@ -65,7 +65,7 @@ namespace FluentUI.Demo.ViewModels
                 FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
                 Icon = "\uE715",
                 Content = "Mail",
-                Tag = new Page
+                Tag = new FluentPage
                 {
                     Content = new TextBlock
                     {
@@ -82,7 +82,7 @@ namespace FluentUI.Demo.ViewModels
                 FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
                 Icon = "\uF56E",
                 Content = "Page3",
-                Tag = new Page
+                Tag = new FluentPage
                 {
                     Content = new TextBlock
                     {

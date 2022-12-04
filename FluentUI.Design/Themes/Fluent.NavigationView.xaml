@@ -27,12 +27,14 @@
                                                              FontFamily="{DynamicResource FontFamilyIcon}"
                                                              Icon="&#xE700;"
                                                              Tag="Fold"
+                                                             Margin="0,0,0,8"
                                                              DockPanel.Dock="Top" />
                                 <controls:NavigationViewItem x:Name="SettingPane"
                                                              FontFamily="{DynamicResource FontFamilyIcon}"
                                                              Icon="&#xE713;"
                                                              Content="{TemplateBinding SettingContent}"
                                                              Tag="Setting"
+                                                             Margin="0,4,0,4"
                                                              DockPanel.Dock="Bottom" />
                                 <controls:FluentScrollViewer>
                                     <ItemsControl ItemsSource="{TemplateBinding MenuItems}" />

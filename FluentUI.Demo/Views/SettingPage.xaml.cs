@@ -1,12 +1,12 @@
 ﻿using FluentUI.Demo.ViewModels;
-using System.Windows.Controls;
+using FluentUI.Design.Controls;
 
 namespace FluentUI.Demo.Views
 {
     /// <summary>
     /// SettingPage.xaml 的交互逻辑
     /// </summary>
-    public partial class SettingPage : Page
+    public partial class SettingPage : FluentPage
     {
         public SettingPage()
         {

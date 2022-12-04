@@ -1,20 +1,20 @@
-﻿<Page x:Class="FluentUI.Demo.Views.Page2"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:viewmodels="clr-namespace:FluentUI.Demo.ViewModels"
-      xmlns:controls="clr-namespace:FluentUI.Design.Controls;assembly=FluentUI.Design"
-      mc:Ignorable="d"
-      d:DesignHeight="450"
-      d:DesignWidth="800"
-      d:DataContext="{d:DesignInstance viewmodels:Page2ViewModel}"
-      Title="Page2">
+﻿<fluent:FluentPage x:Class="FluentUI.Demo.Views.Page2"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:viewmodels="clr-namespace:FluentUI.Demo.ViewModels"
+                   xmlns:fluent="clr-namespace:FluentUI.Design.Controls;assembly=FluentUI.Design"
+                   mc:Ignorable="d"
+                   d:DesignHeight="450"
+                   d:DesignWidth="800"
+                   d:DataContext="{d:DesignInstance viewmodels:Page2ViewModel}"
+                   Title="Page2">
 
     <Grid>
-        <controls:FluentButton HorizontalAlignment="Center"
+        <fluent:FluentButton HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Content="To Page1"
                                Command="{Binding GoToPage1Command}" />
     </Grid>
-</Page>
+</fluent:FluentPage>
