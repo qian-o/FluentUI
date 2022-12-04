@@ -69,10 +69,10 @@
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <fluent:FluentButton Content="Add"
-                                   Command="{Binding ClickCountAddCommand}" />
+                                 Command="{Binding ClickCountAddCommand}" />
             <fluent:FluentButton Margin="0,5,0,0"
-                                   Content="To Page2"
-                                   Command="{Binding GoToPage2Command}" />
+                                 Content="Go To Page2"
+                                 Command="{Binding GoToPage2Command}" />
         </StackPanel>
     </DockPanel>
 </fluent:FluentPage>

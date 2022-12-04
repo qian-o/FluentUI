@@ -13,8 +13,8 @@
 
     <Grid>
         <fluent:FluentButton HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Content="To Page1"
-                               Command="{Binding GoToPage1Command}" />
+                             VerticalAlignment="Center"
+                             Content="Go To Page1"
+                             Command="{Binding GoToPage1Command}" />
     </Grid>
 </fluent:FluentPage>

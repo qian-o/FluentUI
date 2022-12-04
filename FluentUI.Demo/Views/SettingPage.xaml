@@ -13,8 +13,8 @@
 
     <Grid>
         <fluent:FluentButton HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Content="ToggleTheme"
-                               Command="{Binding ToggleThemeCommand}" />
+                             VerticalAlignment="Center"
+                             Content="ToggleTheme"
+                             Command="{Binding ToggleThemeCommand}" />
     </Grid>
 </fluent:FluentPage>
