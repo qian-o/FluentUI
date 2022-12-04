@@ -8,6 +8,7 @@ using FluentUI.Design.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace FluentUI.Demo.ViewModels
@@ -22,19 +23,75 @@ namespace FluentUI.Demo.ViewModels
 
         public ShellViewModel()
         {
-            Pages.Add(new NavigationViewItem
+            Pages.Add(new()
             {
                 FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
                 Icon = "\uF56E",
                 Content = "Page1",
                 Tag = App.GetService<Page1>()
             });
-            Pages.Add(new NavigationViewItem
+            Pages.Add(new()
             {
                 FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
                 Icon = "\uF56E",
                 Content = "Page2",
                 Tag = App.GetService<Page2>()
+            });
+            NavigationViewItem group = new()
+            {
+                IsGroup = true,
+                FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
+                Icon = "\uF168",
+                Content = "Group"
+            };
+            group.MenuItems.Add(new()
+            {
+                FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
+                Icon = "\uE722",
+                Content = "Camera",
+                Tag = new Page
+                {
+                    Content = new TextBlock
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Style = Application.Current.FindResource("Display") as Style,
+                        Text = "Camera"
+                    }
+                }
+            });
+            group.MenuItems.Add(new()
+            {
+                FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
+                Icon = "\uE715",
+                Content = "Mail",
+                Tag = new Page
+                {
+                    Content = new TextBlock
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Style = Application.Current.FindResource("Display") as Style,
+                        Text = "Mail"
+                    }
+                }
+            });
+            Pages.Add(group);
+            Pages.Add(new()
+            {
+                FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
+                Icon = "\uF56E",
+                Content = "Page3",
+                Tag = new Page
+                {
+                    Content = new TextBlock
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Style = Application.Current.FindResource("Display") as Style,
+                        Text = "Page3"
+                    }
+                }
             });
 
             Messenger.Register<NavigationPageMessage>(this, RegisterNavigationPageMessage);
@@ -46,9 +103,17 @@ namespace FluentUI.Demo.ViewModels
             Selected = Pages[0];
         }
 
-        partial void OnSelectedChanged(NavigationViewItem value)
+        [RelayCommand]
+        private void SelectItemChanged(SelectItemChangedEventArgs e)
         {
-            Page.FrameContent.PageContent = value.Tag as System.Windows.Controls.Page;
+            if (e.IsSetting)
+            {
+                Page.FrameContent.PageContent = App.GetService<SettingPage>();
+            }
+            else
+            {
+                Page.FrameContent.PageContent = e.NewViewItem.Tag as Page;
+            }
         }
 
         private void RegisterNavigationPageMessage(object recipient, NavigationPageMessage message)

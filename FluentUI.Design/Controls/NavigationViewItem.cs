@@ -37,6 +37,7 @@ namespace FluentUI.Design.Controls
         public static readonly DependencyProperty IsExpansionProperty = DependencyProperty.Register(nameof(IsExpansion), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
         public static readonly DependencyProperty MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationViewItem), new PropertyMetadata(null));
         public static readonly DependencyProperty ItemsMarginProperty = DependencyProperty.Register(nameof(ItemsMargin), typeof(Thickness), typeof(NavigationViewItem), new PropertyMetadata(new Thickness(0)));
+        public static readonly DependencyProperty IsGroupProperty = DependencyProperty.Register(nameof(IsGroup), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
 
         public object Icon
         {
@@ -72,6 +73,11 @@ namespace FluentUI.Design.Controls
         {
             get { return (Thickness)GetValue(ItemsMarginProperty); }
             set { SetValue(ItemsMarginProperty, value); }
+        }
+        public bool IsGroup
+        {
+            get { return (bool)GetValue(IsGroupProperty); }
+            set { SetValue(IsGroupProperty, value); }
         }
         #endregion
 
@@ -134,7 +140,10 @@ namespace FluentUI.Design.Controls
         {
             if (!e.Handled)
             {
-                _parent.SelectItem = this;
+                if (!IsGroup)
+                {
+                    _parent.SelectItem = this;
+                }
                 if (MenuItemsAny)
                 {
                     IsExpansion = !IsExpansion;

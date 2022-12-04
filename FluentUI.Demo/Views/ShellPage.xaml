@@ -17,7 +17,8 @@
         </behaviors:EventTrigger>
     </behaviors:Interaction.Triggers>
     <fluent:NavigationView MenuItems="{Binding Pages}"
-                           SelectItem="{Binding Selected, Mode=TwoWay}">
+                           SelectItem="{Binding Selected, Mode=TwoWay}"
+                           SelectItemChanged="NavigationView_SelectItemChanged">
         <fluent:NavigationView.Content>
             <fluent:FluentFrame x:Name="FrameContent"
                                 Margin="20" />

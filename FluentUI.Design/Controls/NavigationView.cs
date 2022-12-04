@@ -1,4 +1,5 @@
-﻿using FluentUI.Design.Tools;
+﻿using FluentUI.Design.Models;
+using FluentUI.Design.Tools;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -13,11 +14,23 @@ namespace FluentUI.Design.Controls
         #region Constant
         private const string Pane = "Pane";
         private const string FoldPane = "FoldPane";
+        private const string SettingPane = "SettingPane";
         #endregion
 
         #region Variable
         private Border _pane;
         private NavigationViewItem _foldPane;
+        private NavigationViewItem _settingPane;
+        #endregion
+
+        #region RoutedEvent
+        public static readonly RoutedEvent SelectItemChangedEvent = EventManager.RegisterRoutedEvent(nameof(SelectItemChanged), RoutingStrategy.Direct, typeof(EventHandler<SelectItemChangedEventArgs>), typeof(NavigationView));
+
+        public event EventHandler<SelectItemChangedEventArgs> SelectItemChanged
+        {
+            add => AddHandler(SelectItemChangedEvent, value);
+            remove => RemoveHandler(SelectItemChangedEvent, value);
+        }
         #endregion
 
         #region DependencyProperty
@@ -26,7 +39,9 @@ namespace FluentUI.Design.Controls
         public static readonly DependencyProperty OpenPaneLengthProperty = DependencyProperty.Register(nameof(OpenPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(256d));
         public static readonly DependencyProperty CompactPaneLengthProperty = DependencyProperty.Register(nameof(CompactPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(48d));
         public static readonly DependencyProperty MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationView), new PropertyMetadata(null));
-        public static readonly DependencyProperty SelectItemProperty = DependencyProperty.Register("SelectItem", typeof(NavigationViewItem), typeof(NavigationView), new PropertyMetadata(null));
+        public static readonly DependencyProperty SelectItemProperty = DependencyProperty.Register(nameof(SelectItem), typeof(NavigationViewItem), typeof(NavigationView), new PropertyMetadata(null, OnSelectItemChanged));
+        public static readonly DependencyProperty IsSettingProperty = DependencyProperty.Register(nameof(IsSetting), typeof(bool), typeof(NavigationView), new PropertyMetadata(true));
+        public static readonly DependencyProperty SettingContentProperty = DependencyProperty.Register(nameof(SettingContent), typeof(string), typeof(NavigationView), new PropertyMetadata("Setting"));
 
         public object Content
         {
@@ -58,6 +73,16 @@ namespace FluentUI.Design.Controls
             get { return (NavigationViewItem)GetValue(SelectItemProperty); }
             set { SetValue(SelectItemProperty, value); }
         }
+        public bool IsSetting
+        {
+            get { return (bool)GetValue(IsSettingProperty); }
+            set { SetValue(IsSettingProperty, value); }
+        }
+        public string SettingContent
+        {
+            get { return (string)GetValue(SettingContentProperty); }
+            set { SetValue(SettingContentProperty, value); }
+        }
         #endregion
 
         static NavigationView()
@@ -74,6 +99,7 @@ namespace FluentUI.Design.Controls
         {
             _pane = GetTemplateChild(Pane) as Border;
             _foldPane = GetTemplateChild(FoldPane) as NavigationViewItem;
+            _settingPane = GetTemplateChild(SettingPane) as NavigationViewItem;
 
             SetPaneActualWidth();
             _foldPane.AddPointerUpHandler((a, b) => IsPaneOpen = !IsPaneOpen);
@@ -89,6 +115,19 @@ namespace FluentUI.Design.Controls
             if (d is NavigationView navigationView)
             {
                 navigationView.SetPaneActualWidth();
+            }
+        }
+
+        /// <summary>
+        /// Raises the SelectItemChanged routing event
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
+        private static void OnSelectItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is NavigationView navigationView)
+            {
+                navigationView.RaiseEvent(new SelectItemChangedEventArgs(navigationView._settingPane == e.NewValue, (NavigationViewItem)e.OldValue, (NavigationViewItem)e.NewValue));
             }
         }
 

@@ -1,6 +1,4 @@
-﻿using FluentUI.Design;
-using FluentUI.Design.Controls;
-using System.Windows;
+﻿using FluentUI.Design.Controls;
 
 namespace FluentUI.Demo
 {
@@ -9,18 +7,6 @@ namespace FluentUI.Demo
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (Core.RequestedTheme == Design.Enums.ElementTheme.Light)
-            {
-                Core.RequestedTheme = Design.Enums.ElementTheme.Dark;
-            }
-            else
-            {
-                Core.RequestedTheme = Design.Enums.ElementTheme.Light;
-            }
         }
     }
 }

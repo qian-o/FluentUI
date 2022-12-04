@@ -28,6 +28,12 @@
                                                              Icon="&#xE700;"
                                                              Tag="Fold"
                                                              DockPanel.Dock="Top" />
+                                <controls:NavigationViewItem x:Name="SettingPane"
+                                                             FontFamily="{DynamicResource FontFamilyIcon}"
+                                                             Icon="&#xE713;"
+                                                             Content="{TemplateBinding SettingContent}"
+                                                             Tag="Setting"
+                                                             DockPanel.Dock="Bottom" />
                                 <controls:FluentScrollViewer>
                                     <ItemsControl ItemsSource="{TemplateBinding MenuItems}" />
                                 </controls:FluentScrollViewer>
@@ -42,6 +48,14 @@
                             <ContentControl Content="{TemplateBinding Content}" />
                         </Border>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSetting"
+                                 Value="False">
+                            <Setter TargetName="SettingPane"
+                                    Property="Visibility"
+                                    Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

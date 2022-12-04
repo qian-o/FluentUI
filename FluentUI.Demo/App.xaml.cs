@@ -29,6 +29,8 @@ namespace FluentUI.Demo
                    services.AddSingleton<Page1ViewModel>();
                    services.AddSingleton<Page2>();
                    services.AddSingleton<Page2ViewModel>();
+                   services.AddSingleton<SettingPage>();
+                   services.AddSingleton<SettingViewModel>();
                }).
                Build();
         }

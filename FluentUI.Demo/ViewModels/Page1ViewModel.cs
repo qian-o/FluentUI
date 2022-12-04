@@ -16,18 +16,6 @@ namespace FluentUI.Demo.ViewModels
         [ObservableProperty]
         private Storyboard storyboard;
 
-        partial void OnClickCountChanged(int value)
-        {
-            if (clickCount % 2 == 0)
-            {
-                Storyboard.Resume();
-            }
-            else
-            {
-                Storyboard.Pause();
-            }
-        }
-
         [RelayCommand]
         private void Loaded()
         {
@@ -48,6 +36,18 @@ namespace FluentUI.Demo.ViewModels
         private void GoToPage2()
         {
             Messenger.Send(new NavigationPageMessage(typeof(Page2)));
+        }
+
+        partial void OnClickCountChanged(int value)
+        {
+            if (clickCount % 2 == 0)
+            {
+                Storyboard.Resume();
+            }
+            else
+            {
+                Storyboard.Pause();
+            }
         }
     }
 }
