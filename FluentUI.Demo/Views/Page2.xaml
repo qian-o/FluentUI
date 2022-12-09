@@ -11,10 +11,13 @@
                    d:DataContext="{d:DesignInstance viewmodels:Page2ViewModel}"
                    Title="Page2">
 
-    <Grid>
-        <fluent:FluentButton HorizontalAlignment="Center"
-                             VerticalAlignment="Center"
-                             Content="Go To Page1"
-                             Command="{Binding GoToPage1Command}" />
-    </Grid>
+    <DockPanel>
+        <fluent:FluentButton Content="Go To Page1"
+                             Command="{Binding GoToPage1Command}"
+                             DockPanel.Dock="Top" />
+        <UniformGrid Rows="1" Margin="0,10,0,0">
+            <fluent:LottieView FilePath="{Binding Lottie1}" />
+            <fluent:LottieView FilePath="{Binding Lottie2}" />
+        </UniformGrid>
+    </DockPanel>
 </fluent:FluentPage>
