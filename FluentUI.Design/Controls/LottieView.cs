@@ -3,6 +3,7 @@ using SkiaSharp.Skottie;
 using SkiaSharp.Views.Desktop;
 using SkiaSharp.Views.WPF;
 using System.IO;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Threading;
@@ -77,15 +78,22 @@ namespace FluentUI.Design.Controls
                 _timer = new Timer(1000d / Animation.Fps);
                 _timer.Elapsed += (a, b) =>
                 {
-                    Dispatcher.Invoke(() =>
+                    try
                     {
-                        Animation.SeekFrameTime(seconds);
-                        InvalidateVisual();
-                        if (seconds > Animation.Duration.TotalSeconds)
+                        Dispatcher.Invoke(() =>
                         {
-                            seconds = 0;
-                        }
-                    });
+                            if (seconds > Animation.Duration.TotalSeconds)
+                            {
+                                seconds = 0;
+                            }
+                            Animation.SeekFrameTime(seconds);
+                            InvalidateVisual();
+                        });
+                    }
+                    catch (TaskCanceledException)
+                    {
+
+                    }
                     seconds += _timer.Interval / 1000d;
                 };
                 _timer.Start();
