@@ -1,4 +1,5 @@
 ﻿using FluentUI.Demo.ViewModels;
+using FluentUI.Design;
 using FluentUI.Design.Controls;
 using FluentUI.Design.Models;
 
@@ -9,9 +10,9 @@ namespace FluentUI.Demo.Views
     /// </summary>
     public partial class ShellPage : FluentPage
     {
-        public ShellPage()
+        public ShellPage(ShellViewModel viewModel)
         {
-            DataContext = App.GetViewModel<ShellPage, ShellViewModel>(this);
+            Core.BindingViewModel(this, viewModel);
 
             InitializeComponent();
         }

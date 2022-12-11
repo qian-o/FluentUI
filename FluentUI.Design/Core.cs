@@ -1,9 +1,14 @@
 ﻿using FluentUI.Design.Enums;
+using FluentUI.Design.Models;
 using FluentUI.Design.Tools;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Win32;
 using System;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace FluentUI.Design
 {
@@ -27,9 +32,11 @@ namespace FluentUI.Design
             }
         }
 
-        public static bool IsInitialize { get; set; }
+        public static bool IsInitialize { get; private set; }
 
-        public static void Initialize()
+        public static IHost Host { get; private set; }
+
+        public static void Initialize(Action<IServiceCollection> configureDelegate)
         {
             if (!IsInitialize)
             {
@@ -41,7 +48,37 @@ namespace FluentUI.Design
                     SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
                 }
 
+                Host = Microsoft.Extensions.Hosting.Host.
+                    CreateDefaultBuilder().
+                    ConfigureServices(configureDelegate).
+                    Build();
+
                 IsInitialize = true;
+            }
+        }
+
+        public static T GetService<T>() where T : class
+        {
+            if (Host.Services.GetService(typeof(T)) is not T service)
+            {
+                throw new ArgumentException($"{typeof(T)} needs to be registered in ConfigureServices within App.xaml.cs.");
+            }
+
+            return service;
+        }
+
+        public static void BindingViewModel<TPage, T>(TPage page, T viewModel) where TPage : Page where T : BaseViewModel<TPage>
+        {
+            page.DataContext = viewModel;
+
+            FieldInfo[] fieldInfos = typeof(BaseViewModel<TPage>).GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+            foreach (FieldInfo item in fieldInfos)
+            {
+                if (item.Name == $"<{nameof(BaseViewModel<TPage>.Page)}>k__BackingField")
+                {
+                    item.SetValue(viewModel, page);
+                    break;
+                }
             }
         }
 

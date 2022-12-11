@@ -1,4 +1,5 @@
 ﻿using FluentUI.Demo.ViewModels;
+using FluentUI.Design;
 using FluentUI.Design.Controls;
 
 namespace FluentUI.Demo.Views
@@ -8,9 +9,9 @@ namespace FluentUI.Demo.Views
     /// </summary>
     public partial class Page1 : FluentPage
     {
-        public Page1()
+        public Page1(Page1ViewModel viewModel)
         {
-            DataContext = App.GetViewModel<Page1, Page1ViewModel>(this);
+            Core.BindingViewModel(this, viewModel);
 
             InitializeComponent();
         }

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using FluentUI.Demo.Models.Messages;
 using FluentUI.Demo.Views;
+using FluentUI.Design;
 using FluentUI.Design.Controls;
 using FluentUI.Design.Models;
 using System.Collections.ObjectModel;
@@ -28,14 +29,14 @@ namespace FluentUI.Demo.ViewModels
                 FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
                 Icon = "\uF56E",
                 Content = "Page1",
-                Tag = App.GetService<Page1>()
+                Tag = Core.GetService<Page1>()
             });
             Pages.Add(new()
             {
                 FontFamily = Application.Current.FindResource("FontFamilyIcon") as FontFamily,
                 Icon = "\uF56E",
                 Content = "Page2",
-                Tag = App.GetService<Page2>()
+                Tag = Core.GetService<Page2>()
             });
             NavigationViewItem group = new()
             {
@@ -108,7 +109,7 @@ namespace FluentUI.Demo.ViewModels
         {
             if (e.IsSetting)
             {
-                Page.FrameContent.PageContent = App.GetService<SettingPage>();
+                Page.FrameContent.PageContent = Core.GetService<SettingPage>();
             }
             else
             {
