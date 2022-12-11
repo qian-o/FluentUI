@@ -6,14 +6,20 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace FluentUI.Design.Controls
 {
-    public class LottieView : SKElement
+    public class LottieView : Control
     {
+        #region Constant
+        private const string DrawCanvas = "DrawCanvas";
+        #endregion
+
         #region Variable
         private Timer _timer;
+        private SKElement _drawCanvas;
         #endregion
 
         #region DependencyProperty
@@ -40,7 +46,19 @@ namespace FluentUI.Design.Controls
         }
         #endregion
 
-        protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
+        static LottieView()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(LottieView), new FrameworkPropertyMetadata(typeof(LottieView)));
+        }
+
+        public override void OnApplyTemplate()
+        {
+            _drawCanvas = GetTemplateChild(DrawCanvas) as SKElement;
+
+            _drawCanvas.PaintSurface += DrawCanvas_PaintSurface;
+        }
+
+        private void DrawCanvas_PaintSurface(object sender, SKPaintSurfaceEventArgs e)
         {
             if (Animation != null)
             {
@@ -87,7 +105,7 @@ namespace FluentUI.Design.Controls
                                 seconds = 0;
                             }
                             Animation.SeekFrameTime(seconds);
-                            InvalidateVisual();
+                            _drawCanvas?.InvalidateVisual();
                         });
                     }
                     catch (TaskCanceledException)

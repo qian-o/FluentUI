@@ -3,6 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.Frame.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.LottieView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.NavigationView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.NavigationViewItem.xaml" />
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Themes/Fluent.Page.xaml" />
