@@ -66,6 +66,7 @@
 
             </Border>
         </Grid>
+        <fluent:ToggleSwitch Height="100" DockPanel.Dock="Top" />
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <fluent:FluentButton Content="Add"
