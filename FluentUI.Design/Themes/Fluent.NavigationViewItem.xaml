@@ -14,7 +14,7 @@
         <Setter Property="Background"
                 Value="Transparent" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorNeutralForeground1}" />
+                Value="{DynamicResource BrushNeutralForeground1}" />
         <Setter Property="FontSize"
                 Value="18" />
         <Setter Property="Margin"

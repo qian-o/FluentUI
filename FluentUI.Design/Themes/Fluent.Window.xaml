@@ -11,9 +11,9 @@
         <Setter Property="Width"
                 Value="46" />
         <Setter Property="Background"
-                Value="{DynamicResource ColorAeroCaptionBackground}" />
+                Value="{DynamicResource BrushAeroCaptionBackground}" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorNeutralForeground2}" />
+                Value="{DynamicResource BrushNeutralForeground2}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -34,16 +34,16 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorAeroCaptionBackgroundHover}" />
+                        Value="{DynamicResource BrushAeroCaptionBackgroundHover}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground2Hover}" />
+                        Value="{DynamicResource BrushNeutralForeground2Hover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorAeroCaptionBackgroundPressed}" />
+                        Value="{DynamicResource BrushAeroCaptionBackgroundPressed}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground2Pressed}" />
+                        Value="{DynamicResource BrushNeutralForeground2Pressed}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -53,9 +53,9 @@
         <Setter Property="Width"
                 Value="46" />
         <Setter Property="Background"
-                Value="{DynamicResource ColorAeroCaptionBackground}" />
+                Value="{DynamicResource BrushAeroCaptionBackground}" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorNeutralForeground2}" />
+                Value="{DynamicResource BrushNeutralForeground2}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -88,16 +88,16 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorAeroCaptionBackgroundHover}" />
+                        Value="{DynamicResource BrushAeroCaptionBackgroundHover}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground2Hover}" />
+                        Value="{DynamicResource BrushNeutralForeground2Hover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorAeroCaptionBackgroundPressed}" />
+                        Value="{DynamicResource BrushAeroCaptionBackgroundPressed}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground2Pressed}" />
+                        Value="{DynamicResource BrushNeutralForeground2Pressed}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -107,9 +107,9 @@
         <Setter Property="Width"
                 Value="46" />
         <Setter Property="Background"
-                Value="{DynamicResource ColorPaletteRedBackground}" />
+                Value="{DynamicResource BrushPaletteRedBackground}" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorPaletteRedForeground}" />
+                Value="{DynamicResource BrushPaletteRedForeground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -137,16 +137,16 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorPaletteRedBackgroundHover}" />
+                        Value="{DynamicResource BrushPaletteRedBackgroundHover}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorPaletteRedForegroundHover}" />
+                        Value="{DynamicResource BrushPaletteRedForegroundHover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorPaletteRedBackgroundPressed}" />
+                        Value="{DynamicResource BrushPaletteRedBackgroundPressed}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorPaletteRedForegroundPressed}" />
+                        Value="{DynamicResource BrushPaletteRedForegroundPressed}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -160,9 +160,9 @@
             </Setter.Value>
         </Setter>
         <Setter Property="Background"
-                Value="{DynamicResource ColorPrimarilyBackground}" />
+                Value="{DynamicResource BrushPrimarilyBackground}" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorPrimarilyForeground}" />
+                Value="{DynamicResource BrushPrimarilyForeground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:FluentWindow}">

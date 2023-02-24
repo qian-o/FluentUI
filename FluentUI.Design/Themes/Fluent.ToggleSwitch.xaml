@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:animations="clr-namespace:FluentUI.Design.Animations"
                     xmlns:controls="clr-namespace:FluentUI.Design.Controls"
                     xmlns:converters="clr-namespace:FluentUI.Design.Converters">
 
@@ -19,7 +18,7 @@
                 <ControlTemplate TargetType="{x:Type controls:ToggleSwitch}">
                     <Grid Background="Transparent"
                           TextElement.FontFamily="{DynamicResource FontFamilyBase}"
-                          TextElement.Foreground="{DynamicResource ColorNeutralForeground1}"
+                          TextElement.Foreground="{DynamicResource BrushNeutralForeground1}"
                           TextElement.FontSize="{DynamicResource FontSizeBase300}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -49,7 +48,7 @@
                                     Width="40"
                                     VerticalAlignment="Top"
                                     BorderThickness="{Binding Source={StaticResource StrokeWidthThin}}"
-                                    BorderBrush="{DynamicResource ColorNeutralStrokeAccessible}"
+                                    BorderBrush="{DynamicResource BrushNeutralStrokeAccessible}"
                                     CornerRadius="10"
                                     SnapsToDevicePixels="True">
                                 <Border.Margin>
@@ -68,7 +67,7 @@
                                          Width="14"
                                          HorizontalAlignment="Left"
                                          Margin="2"
-                                         Fill="{DynamicResource ColorNeutralStrokeAccessible}">
+                                         Fill="{DynamicResource BrushNeutralStrokeAccessible}">
                                     <Ellipse.RenderTransform>
                                         <TranslateTransform />
                                     </Ellipse.RenderTransform>
@@ -102,16 +101,6 @@
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <animations:BrushAnimation Storyboard.TargetName="Main"
-                                                                   Storyboard.TargetProperty="Background"
-                                                                   To="{StaticResource ColorCompoundBrandBackground}"
-                                                                   Duration="{StaticResource DurationNormal}" />
-
-                                        <animations:BrushAnimation Storyboard.TargetName="Tab"
-                                                                   Storyboard.TargetProperty="Fill"
-                                                                   To="{StaticResource ColorNeutralForegroundInverted}"
-                                                                   Duration="{StaticResource DurationNormal}" />
-
                                         <DoubleAnimation Storyboard.TargetName="Tab"
                                                          Storyboard.TargetProperty="RenderTransform.X"
                                                          To="20"
@@ -122,24 +111,24 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <animations:BrushAnimation Storyboard.TargetName="Main"
-                                                                   Storyboard.TargetProperty="Background"
-                                                                   Duration="{StaticResource DurationUltraFast}" />
-
-                                        <animations:BrushAnimation Storyboard.TargetName="Tab"
-                                                                   Storyboard.TargetProperty="Fill"
-                                                                   Duration="{StaticResource DurationNormal}" />
-
                                         <DoubleAnimation Storyboard.TargetName="Tab"
                                                          Storyboard.TargetProperty="RenderTransform.X"
                                                          Duration="{StaticResource DurationNormal}" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
+                            
+                            <Setter TargetName="Main"
+                                    Property="Background"
+                                    Value="{DynamicResource BrushCompoundBrandBackground}" />
 
                             <Setter TargetName="Main"
                                     Property="BorderThickness"
                                     Value="0" />
+
+                            <Setter TargetName="Tab"
+                                    Property="Fill"
+                                    Value="{DynamicResource BrushNeutralForegroundInverted}" />
 
                             <Setter TargetName="Off"
                                     Property="Visibility"

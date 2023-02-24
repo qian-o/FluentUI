@@ -19,11 +19,11 @@
         <Setter Property="VerticalContentAlignment"
                 Value="Center" />
         <Setter Property="Background"
-                Value="{DynamicResource ColorNeutralBackground1}" />
+                Value="{DynamicResource BrushNeutralBackground1}" />
         <Setter Property="BorderBrush"
-                Value="{DynamicResource ColorNeutralStroke1}" />
+                Value="{DynamicResource BrushNeutralStroke1}" />
         <Setter Property="Foreground"
-                Value="{DynamicResource ColorNeutralForeground1}" />
+                Value="{DynamicResource BrushNeutralForeground1}" />
         <Setter Property="Padding">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource ThicknessResourcesConvert}">
@@ -60,20 +60,20 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorNeutralBackground1Hover}" />
+                        Value="{DynamicResource BrushNeutralBackground1Hover}" />
                 <Setter Property="BorderBrush"
-                        Value="{DynamicResource ColorNeutralStroke1Hover}" />
+                        Value="{DynamicResource BrushNeutralStroke1Hover}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground1Hover}" />
+                        Value="{DynamicResource BrushNeutralForeground1Hover}" />
             </Trigger>
             <Trigger Property="IsMouseCaptured"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{DynamicResource ColorNeutralBackground1Pressed}" />
+                        Value="{DynamicResource BrushNeutralBackground1Pressed}" />
                 <Setter Property="BorderBrush"
-                        Value="{DynamicResource ColorNeutralStroke1Pressed}" />
+                        Value="{DynamicResource BrushNeutralStroke1Pressed}" />
                 <Setter Property="Foreground"
-                        Value="{DynamicResource ColorNeutralForeground1Pressed}" />
+                        Value="{DynamicResource BrushNeutralForeground1Pressed}" />
             </Trigger>
         </Style.Triggers>
     </Style>
