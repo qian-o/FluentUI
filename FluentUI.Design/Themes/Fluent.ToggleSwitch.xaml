@@ -86,6 +86,7 @@
                                         </MultiBinding.Bindings>
                                     </MultiBinding>
                                 </Grid.Margin>
+                                
                                 <ContentPresenter x:Name="Off"
                                                   Content="{TemplateBinding OffContent}" />
 
