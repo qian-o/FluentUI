@@ -55,8 +55,8 @@ public class BrushAnimation : AnimationTimeline
             return Brushes.Transparent;
         }
 
-        Brush originValue = this.From ?? defaultOriginValue as Brush;
-        Brush dstValue = this.To ?? defaultDestinationValue as Brush;
+        Brush originValue = From ?? (Brush)defaultOriginValue;
+        Brush dstValue = To ?? (Brush)defaultDestinationValue;
 
         double progress = animationClock.CurrentProgress.Value;
         if (progress == 0)
