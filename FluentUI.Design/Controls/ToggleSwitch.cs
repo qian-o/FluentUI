@@ -1,14 +1,15 @@
-﻿using System.Windows;
+﻿using FluentUI.Design.Tools;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace FluentUI.Design.Controls
 {
     public class ToggleSwitch : Control
     {
-        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object), typeof(ToggleSwitch), new PropertyMetadata(null));
-        public static readonly DependencyProperty IsOnProperty = DependencyProperty.Register(nameof(IsOn), typeof(bool), typeof(ToggleSwitch), new PropertyMetadata(false));
-        public static readonly DependencyProperty OffContentProperty = DependencyProperty.Register(nameof(OffContent), typeof(object), typeof(ToggleSwitch), new PropertyMetadata(null));
-        public static readonly DependencyProperty OnContentProperty = DependencyProperty.Register(nameof(OnContent), typeof(object), typeof(ToggleSwitch), new PropertyMetadata(null));
+        public static readonly DependencyProperty HeaderProperty;
+        public static readonly DependencyProperty IsOnProperty;
+        public static readonly DependencyProperty OffContentProperty;
+        public static readonly DependencyProperty OnContentProperty;
 
         public object Header
         {
@@ -36,7 +37,17 @@ namespace FluentUI.Design.Controls
 
         static ToggleSwitch()
         {
+            HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object), typeof(ToggleSwitch), new PropertyMetadata(null));
+            IsOnProperty = DependencyProperty.Register(nameof(IsOn), typeof(bool), typeof(ToggleSwitch), new PropertyMetadata(false));
+            OffContentProperty = DependencyProperty.Register(nameof(OffContent), typeof(object), typeof(ToggleSwitch), new PropertyMetadata("Off"));
+            OnContentProperty = DependencyProperty.Register(nameof(OnContent), typeof(object), typeof(ToggleSwitch), new PropertyMetadata("On"));
+
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ToggleSwitch), new FrameworkPropertyMetadata(typeof(ToggleSwitch)));
+        }
+
+        public ToggleSwitch()
+        {
+            this.AddPointerUpHandler((a, b) => IsOn = !IsOn);
         }
     }
 }

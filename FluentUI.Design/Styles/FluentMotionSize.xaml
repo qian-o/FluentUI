@@ -44,7 +44,6 @@
     <CornerRadius x:Key="BorderRadiusMedium">4</CornerRadius>
     <CornerRadius x:Key="BorderRadiusLarge">6</CornerRadius>
     <CornerRadius x:Key="BorderRadiusXLarge">8</CornerRadius>
-    <CornerRadius x:Key="BorderRadiusCircular">10000</CornerRadius>
 
     <DropShadowEffect x:Key="DropShadowEffectBase"
                       Direction="-90"

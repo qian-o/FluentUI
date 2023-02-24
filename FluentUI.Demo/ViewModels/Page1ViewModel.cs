@@ -40,7 +40,7 @@ namespace FluentUI.Demo.ViewModels
 
         partial void OnClickCountChanged(int value)
         {
-            if (clickCount % 2 == 0)
+            if (ClickCount % 2 == 0)
             {
                 Storyboard.Resume();
             }

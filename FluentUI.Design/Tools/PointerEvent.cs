@@ -22,6 +22,7 @@ namespace FluentUI.Design.Tools
                 pointerUpEvents.Add(pointer);
             }
         }
+
         public static void RemovePointerUpHandler(this UIElement element, RoutedEventHandler handler)
         {
             lock (pointerUpEvents)
@@ -49,6 +50,7 @@ namespace FluentUI.Design.Tools
                 pointerDownEvents.Add(pointer);
             }
         }
+
         public static void RemovePointerDownHandler(this UIElement element, RoutedEventHandler handler)
         {
             lock (pointerDownEvents)

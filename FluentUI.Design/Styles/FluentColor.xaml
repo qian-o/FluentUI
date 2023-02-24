@@ -6,8 +6,8 @@
         <ResourceDictionary Source="pack://application:,,,/FluentUI.Design;component/Styles/FluentColor.Light.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Brush x:Key="ColorPaletteRedBackground">Transparent</Brush>
-    <Brush x:Key="ColorPaletteRedBackgroundHover">#C02B1C</Brush>
-    <Brush x:Key="ColorPaletteRedBackgroundPressed">#C73C31</Brush>
+    <SolidColorBrush x:Key="ColorPaletteRedBackground">Transparent</SolidColorBrush>
+    <SolidColorBrush x:Key="ColorPaletteRedBackgroundHover">#C02B1C</SolidColorBrush>
+    <SolidColorBrush x:Key="ColorPaletteRedBackgroundPressed">#C73C31</SolidColorBrush>
     
 </ResourceDictionary>

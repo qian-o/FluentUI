@@ -6,7 +6,7 @@ namespace FluentUI.Design.Controls
     public class FluentButton : Button
     {
         #region DependencyProperty
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(FluentButton), new PropertyMetadata(new CornerRadius(0)));
+        public static readonly DependencyProperty CornerRadiusProperty;
 
         public CornerRadius CornerRadius
         {
@@ -17,6 +17,8 @@ namespace FluentUI.Design.Controls
 
         static FluentButton()
         {
+            CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(FluentButton), new PropertyMetadata(new CornerRadius(0)));
+
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FluentButton), new FrameworkPropertyMetadata(typeof(FluentButton)));
         }
     }

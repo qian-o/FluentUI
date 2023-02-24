@@ -30,14 +30,14 @@ namespace FluentUI.Design.Controls
         #endregion
 
         #region DependencyProperty
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(object), typeof(NavigationViewItem), new PropertyMetadata(null));
-        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(nameof(Content), typeof(string), typeof(NavigationViewItem), new PropertyMetadata(string.Empty));
-        public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
-        public static readonly DependencyProperty MenuItemsAnyProperty = DependencyProperty.Register(nameof(MenuItemsAny), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
-        public static readonly DependencyProperty IsExpansionProperty = DependencyProperty.Register(nameof(IsExpansion), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
-        public static readonly DependencyProperty MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationViewItem), new PropertyMetadata(null));
-        public static readonly DependencyProperty ItemsMarginProperty = DependencyProperty.Register(nameof(ItemsMargin), typeof(Thickness), typeof(NavigationViewItem), new PropertyMetadata(new Thickness(0)));
-        public static readonly DependencyProperty IsGroupProperty = DependencyProperty.Register(nameof(IsGroup), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
+        public static readonly DependencyProperty IconProperty;
+        public static readonly DependencyProperty ContentProperty;
+        public static readonly DependencyProperty IsSelectedProperty;
+        public static readonly DependencyProperty MenuItemsAnyProperty;
+        public static readonly DependencyProperty IsExpansionProperty;
+        public static readonly DependencyProperty MenuItemsProperty;
+        public static readonly DependencyProperty ItemsMarginProperty;
+        public static readonly DependencyProperty IsGroupProperty;
 
         public object Icon
         {
@@ -83,6 +83,15 @@ namespace FluentUI.Design.Controls
 
         static NavigationViewItem()
         {
+            IconProperty = DependencyProperty.Register(nameof(Icon), typeof(object), typeof(NavigationViewItem), new PropertyMetadata(null));
+            ContentProperty = DependencyProperty.Register(nameof(Content), typeof(string), typeof(NavigationViewItem), new PropertyMetadata(string.Empty));
+            IsSelectedProperty = DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
+            MenuItemsAnyProperty = DependencyProperty.Register(nameof(MenuItemsAny), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
+            IsExpansionProperty = DependencyProperty.Register(nameof(IsExpansion), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
+            MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationViewItem), new PropertyMetadata(null));
+            ItemsMarginProperty = DependencyProperty.Register(nameof(ItemsMargin), typeof(Thickness), typeof(NavigationViewItem), new PropertyMetadata(new Thickness(0)));
+            IsGroupProperty = DependencyProperty.Register(nameof(IsGroup), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
+
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NavigationViewItem), new FrameworkPropertyMetadata(typeof(NavigationViewItem)));
         }
 

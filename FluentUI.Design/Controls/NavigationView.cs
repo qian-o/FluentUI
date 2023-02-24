@@ -34,14 +34,14 @@ namespace FluentUI.Design.Controls
         #endregion
 
         #region DependencyProperty
-        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(nameof(Content), typeof(object), typeof(NavigationView), new PropertyMetadata(null));
-        public static readonly DependencyProperty IsPaneOpenProperty = DependencyProperty.Register(nameof(IsPaneOpen), typeof(bool), typeof(NavigationView), new PropertyMetadata(true, OnIsPaneOpenChanged));
-        public static readonly DependencyProperty OpenPaneLengthProperty = DependencyProperty.Register(nameof(OpenPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(256d));
-        public static readonly DependencyProperty CompactPaneLengthProperty = DependencyProperty.Register(nameof(CompactPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(48d));
-        public static readonly DependencyProperty MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationView), new PropertyMetadata(null));
-        public static readonly DependencyProperty SelectItemProperty = DependencyProperty.Register(nameof(SelectItem), typeof(NavigationViewItem), typeof(NavigationView), new PropertyMetadata(null, OnSelectItemChanged));
-        public static readonly DependencyProperty IsSettingProperty = DependencyProperty.Register(nameof(IsSetting), typeof(bool), typeof(NavigationView), new PropertyMetadata(true));
-        public static readonly DependencyProperty SettingContentProperty = DependencyProperty.Register(nameof(SettingContent), typeof(string), typeof(NavigationView), new PropertyMetadata("Setting"));
+        public static readonly DependencyProperty ContentProperty;
+        public static readonly DependencyProperty IsPaneOpenProperty;
+        public static readonly DependencyProperty OpenPaneLengthProperty;
+        public static readonly DependencyProperty CompactPaneLengthProperty;
+        public static readonly DependencyProperty MenuItemsProperty;
+        public static readonly DependencyProperty SelectItemProperty;
+        public static readonly DependencyProperty IsSettingProperty;
+        public static readonly DependencyProperty SettingContentProperty;
 
         public object Content
         {
@@ -87,6 +87,15 @@ namespace FluentUI.Design.Controls
 
         static NavigationView()
         {
+            ContentProperty = DependencyProperty.Register(nameof(Content), typeof(object), typeof(NavigationView), new PropertyMetadata(null));
+            IsPaneOpenProperty = DependencyProperty.Register(nameof(IsPaneOpen), typeof(bool), typeof(NavigationView), new PropertyMetadata(true, OnIsPaneOpenChanged));
+            OpenPaneLengthProperty = DependencyProperty.Register(nameof(OpenPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(256d));
+            CompactPaneLengthProperty = DependencyProperty.Register(nameof(CompactPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(48d));
+            MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationView), new PropertyMetadata(null));
+            SelectItemProperty = DependencyProperty.Register(nameof(SelectItem), typeof(NavigationViewItem), typeof(NavigationView), new PropertyMetadata(null, OnSelectItemChanged));
+            IsSettingProperty = DependencyProperty.Register(nameof(IsSetting), typeof(bool), typeof(NavigationView), new PropertyMetadata(true));
+            SettingContentProperty = DependencyProperty.Register(nameof(SettingContent), typeof(string), typeof(NavigationView), new PropertyMetadata("Setting"));
+
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NavigationView), new FrameworkPropertyMetadata(typeof(NavigationView)));
         }
 

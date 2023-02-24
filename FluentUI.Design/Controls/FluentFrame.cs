@@ -20,7 +20,7 @@ namespace FluentUI.Design.Controls
         #endregion
 
         #region DependencyProperty
-        public static readonly DependencyProperty PageContentProperty = DependencyProperty.Register(nameof(PageContent), typeof(Page), typeof(FluentFrame), new PropertyMetadata(null, OnPageContentChanged));
+        public static readonly DependencyProperty PageContentProperty;
 
         public Page PageContent
         {
@@ -31,6 +31,8 @@ namespace FluentUI.Design.Controls
 
         static FluentFrame()
         {
+            PageContentProperty = DependencyProperty.Register(nameof(PageContent), typeof(Page), typeof(FluentFrame), new PropertyMetadata(null, OnPageContentChanged));
+
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FluentFrame), new FrameworkPropertyMetadata(typeof(FluentFrame)));
         }
 

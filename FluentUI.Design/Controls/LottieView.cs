@@ -23,9 +23,9 @@ namespace FluentUI.Design.Controls
         #endregion
 
         #region DependencyProperty
-        public static readonly DependencyProperty FilePathProperty = DependencyProperty.Register(nameof(FilePath), typeof(string), typeof(LottieView), new PropertyMetadata(string.Empty, OnFilePathChanged));
-        public static readonly DependencyProperty AnimationProperty = DependencyProperty.Register(nameof(Animation), typeof(Animation), typeof(LottieView), new PropertyMetadata(null));
-        public static readonly DependencyProperty AutoSizeProperty = DependencyProperty.Register(nameof(AutoSize), typeof(bool), typeof(LottieView), new PropertyMetadata(false));
+        public static readonly DependencyProperty FilePathProperty;
+        public static readonly DependencyProperty AnimationProperty;
+        public static readonly DependencyProperty AutoSizeProperty;
 
         public string FilePath
         {
@@ -48,6 +48,10 @@ namespace FluentUI.Design.Controls
 
         static LottieView()
         {
+            FilePathProperty = DependencyProperty.Register(nameof(FilePath), typeof(string), typeof(LottieView), new PropertyMetadata(string.Empty, OnFilePathChanged));
+            AnimationProperty = DependencyProperty.Register(nameof(Animation), typeof(Animation), typeof(LottieView), new PropertyMetadata(null));
+            AutoSizeProperty = DependencyProperty.Register(nameof(AutoSize), typeof(bool), typeof(LottieView), new PropertyMetadata(false));
+
             DefaultStyleKeyProperty.OverrideMetadata(typeof(LottieView), new FrameworkPropertyMetadata(typeof(LottieView)));
         }
 
