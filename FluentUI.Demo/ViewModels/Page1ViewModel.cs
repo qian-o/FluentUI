@@ -27,10 +27,7 @@ namespace FluentUI.Demo.ViewModels
         }
 
         [RelayCommand]
-        private void ClickCountAdd()
-        {
-            ClickCount++;
-        }
+        private void ClickCountAdd() => ClickCount++;
 
         [RelayCommand]
         private void GoToPage2()
