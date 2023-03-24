@@ -5,11 +5,13 @@
 		<Nullable>disable</Nullable>
 		<UseWPF>true</UseWPF>
 		<Platforms>ARM32;ARM64;x64;x86</Platforms>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.2.206-beta"/>
 		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
 		<PackageReference Include="SkiaSharp.Skottie" Version="2.88.3" />
 		<PackageReference Include="SkiaSharp.Views.WPF" Version="2.88.3" />

@@ -31,15 +31,15 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver"
-                     Value="True">
+            <Trigger Property="Tag"
+                     Value="MouseOver">
                 <Setter Property="Background"
                         Value="{DynamicResource BrushAeroCaptionBackgroundHover}" />
                 <Setter Property="Foreground"
                         Value="{DynamicResource BrushNeutralForeground2Hover}" />
             </Trigger>
-            <Trigger Property="IsMouseCaptured"
-                     Value="True">
+            <Trigger Property="Tag"
+                     Value="MouseCaptured">
                 <Setter Property="Background"
                         Value="{DynamicResource BrushAeroCaptionBackgroundPressed}" />
                 <Setter Property="Foreground"
@@ -85,15 +85,15 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver"
-                     Value="True">
+            <Trigger Property="Tag"
+                     Value="MouseOver">
                 <Setter Property="Background"
                         Value="{DynamicResource BrushAeroCaptionBackgroundHover}" />
                 <Setter Property="Foreground"
                         Value="{DynamicResource BrushNeutralForeground2Hover}" />
             </Trigger>
-            <Trigger Property="IsMouseCaptured"
-                     Value="True">
+            <Trigger Property="Tag"
+                     Value="MouseCaptured">
                 <Setter Property="Background"
                         Value="{DynamicResource BrushAeroCaptionBackgroundPressed}" />
                 <Setter Property="Foreground"
@@ -134,15 +134,15 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver"
-                     Value="True">
+            <Trigger Property="Tag"
+                     Value="MouseOver">
                 <Setter Property="Background"
                         Value="{DynamicResource BrushPaletteRedBackgroundHover}" />
                 <Setter Property="Foreground"
                         Value="{DynamicResource BrushPaletteRedForegroundHover}" />
             </Trigger>
-            <Trigger Property="IsMouseCaptured"
-                     Value="True">
+            <Trigger Property="Tag"
+                     Value="MouseCaptured">
                 <Setter Property="Background"
                         Value="{DynamicResource BrushPaletteRedBackgroundPressed}" />
                 <Setter Property="Foreground"
@@ -174,18 +174,16 @@
                                     <RowDefinition Height="30" />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <UniformGrid x:Name="AeroCaptionButtons"
-                                             Grid.Row="0"
+                                <UniformGrid Grid.Row="0"
                                              Width="138"
                                              HorizontalAlignment="Right"
-                                             Rows="1"
-                                             WindowChrome.IsHitTestVisibleInChrome="True">
-                                    <Button Style="{StaticResource Minimized}"
-                                            Tag="Minimized" />
-                                    <Button Style="{StaticResource WindowState}"
-                                            Tag="WindowState" />
-                                    <Button Style="{StaticResource Close}"
-                                            Tag="Close" />
+                                             Rows="1">
+                                    <Button x:Name="MinButton"
+                                            Style="{StaticResource Minimized}" />
+                                    <Button x:Name="MaxButton"
+                                            Style="{StaticResource WindowState}" />
+                                    <Button x:Name="CloseButton"
+                                            Style="{StaticResource Close}" />
                                 </UniformGrid>
                                 <Border Grid.Row="1">
                                     <ContentPresenter Content="{TemplateBinding Content}" />
