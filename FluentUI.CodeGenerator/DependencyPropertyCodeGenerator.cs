@@ -21,7 +21,7 @@ namespace FluentUI
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     internal class DependencyPropertyAttribute<T> : Attribute
     {
-        public DependencyPropertyAttribute(string name, string defaultCode = null, bool isNullable = false)
+        public DependencyPropertyAttribute(string name, string modifier = ""public"", string defaultCode = null, bool isNullable = false)
         {
         }
     }
@@ -154,8 +154,9 @@ namespace FluentUI
             {
                 ITypeSymbol typeSymbol = item.AttributeClass.TypeArguments.Single();
                 TypedConstant nameConstant = item.ConstructorArguments[0];
-                TypedConstant defaultCodeConstant = item.ConstructorArguments[1];
-                TypedConstant isNullableConstant = item.ConstructorArguments[2];
+                TypedConstant modifierConstant = item.ConstructorArguments[1];
+                TypedConstant defaultCodeConstant = item.ConstructorArguments[2];
+                TypedConstant isNullableConstant = item.ConstructorArguments[3];
 
                 string code;
                 if (defaultCodeConstant.Value != null)
@@ -167,7 +168,7 @@ namespace FluentUI
                     code = $"default({typeSymbol})";
                 }
 
-                ProcessProperty(source, classSymbol, typeSymbol, (string)nameConstant.Value, code, (bool)isNullableConstant.Value);
+                ProcessProperty(source, classSymbol, typeSymbol, (string)nameConstant.Value, (string)modifierConstant.Value, code, (bool)isNullableConstant.Value);
 
                 if (item != attributes.Last())
                 {
@@ -181,7 +182,7 @@ namespace FluentUI
             return source.ToString();
         }
 
-        private void ProcessProperty(StringBuilder source, ITypeSymbol classSymbol, ITypeSymbol typeSymbol, string name, string defaultCode, bool isNullable)
+        private void ProcessProperty(StringBuilder source, ITypeSymbol classSymbol, ITypeSymbol typeSymbol, string name, string modifier, string defaultCode, bool isNullable)
         {
             string type = typeSymbol.ToString();
             if (isNullable)
@@ -189,13 +190,13 @@ namespace FluentUI
                 type += "?";
             }
 
-            source.AppendLine($@"       public {type} {name}");
+            source.AppendLine($@"       {modifier} {type} {name}");
             source.AppendLine($@"       {{");
             source.AppendLine($@"           get {{ return ({type})GetValue({name}Property); }}");
             source.AppendLine($@"           set {{ SetValue({name}Property, value); }}");
             source.AppendLine($@"       }}");
             source.AppendLine();
-            source.AppendLine($@"       public static readonly DependencyProperty {name}Property = DependencyProperty.Register(nameof({name}), typeof({type}), typeof({classSymbol.Name}), new PropertyMetadata({defaultCode}, (a, b) =>");
+            source.AppendLine($@"       {modifier} static readonly DependencyProperty {name}Property = DependencyProperty.Register(nameof({name}), typeof({type}), typeof({classSymbol.Name}), new PropertyMetadata({defaultCode}, (a, b) =>");
             source.AppendLine($@"       {{");
             source.AppendLine($@"           (({classSymbol.Name})a).On{name}Changed(({type})b.OldValue, ({type})b.NewValue);");
             source.AppendLine($@"       }}));");

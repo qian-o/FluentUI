@@ -12,7 +12,7 @@ namespace FluentUI.Design.Controls
 {
     [DependencyProperty<object>("Icon")]
     [DependencyProperty<string>("Content")]
-    [DependencyProperty<bool>("IsSelected")]
+    [DependencyProperty<bool>("IsSelected", modifier: "internal")]
     [DependencyProperty<bool>("MenuItemsAny")]
     [DependencyProperty<bool>("IsExpansion")]
     [DependencyProperty<ObservableCollection<NavigationViewItem>>("MenuItems")]
