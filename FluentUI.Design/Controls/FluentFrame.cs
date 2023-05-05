@@ -5,7 +5,8 @@ using System.Windows.Media.Animation;
 
 namespace FluentUI.Design.Controls
 {
-    public class FluentFrame : Control
+    [DependencyProperty<Page>("PageContent")]
+    public partial class FluentFrame : Control
     {
         #region Constant
         private const string FrameContent = "FrameContent";
@@ -19,20 +20,8 @@ namespace FluentUI.Design.Controls
         private Storyboard _excessivePageShow;
         #endregion
 
-        #region DependencyProperty
-        public static readonly DependencyProperty PageContentProperty;
-
-        public Page PageContent
-        {
-            get { return (Page)GetValue(PageContentProperty); }
-            set { SetValue(PageContentProperty, value); }
-        }
-        #endregion
-
         static FluentFrame()
         {
-            PageContentProperty = DependencyProperty.Register(nameof(PageContent), typeof(Page), typeof(FluentFrame), new PropertyMetadata(null, OnPageContentChanged));
-
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FluentFrame), new FrameworkPropertyMetadata(typeof(FluentFrame)));
         }
 
@@ -45,12 +34,9 @@ namespace FluentUI.Design.Controls
             NavigatePage();
         }
 
-        private static void OnPageContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        partial void OnPageContentChanged(Page oldValue, Page newValue)
         {
-            if (d is FluentFrame fluentFrame)
-            {
-                fluentFrame.NavigatePage();
-            }
+            NavigatePage();
         }
 
         /// <summary>

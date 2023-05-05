@@ -21,7 +21,7 @@ namespace FluentUI
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     internal class DependencyPropertyAttribute<T> : Attribute
     {
-        public DependencyPropertyAttribute(string name, string defaultCode, bool isNullable = false)
+        public DependencyPropertyAttribute(string name, string defaultCode = null, bool isNullable = false)
         {
         }
     }
@@ -157,7 +157,17 @@ namespace FluentUI
                 TypedConstant defaultCodeConstant = item.ConstructorArguments[1];
                 TypedConstant isNullableConstant = item.ConstructorArguments[2];
 
-                ProcessProperty(source, classSymbol, typeSymbol, (string)nameConstant.Value, (string)defaultCodeConstant.Value, (bool)isNullableConstant.Value);
+                string code;
+                if (defaultCodeConstant.Value != null)
+                {
+                    code = (string)defaultCodeConstant.Value;
+                }
+                else
+                {
+                    code = $"default({typeSymbol})";
+                }
+
+                ProcessProperty(source, classSymbol, typeSymbol, (string)nameConstant.Value, code, (bool)isNullableConstant.Value);
 
                 if (item != attributes.Last())
                 {

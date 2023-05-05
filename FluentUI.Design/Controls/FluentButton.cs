@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 namespace FluentUI.Design.Controls
 {
-    [DependencyProperty<CornerRadius>("CornerRadius", "new CornerRadius(0)")]
+    [DependencyProperty<CornerRadius>("CornerRadius")]
     public partial class FluentButton : Button
     {
         static FluentButton()
