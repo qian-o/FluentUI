@@ -11,7 +11,10 @@ using System.Windows.Threading;
 
 namespace FluentUI.Design.Controls
 {
-    public class LottieView : Control
+    [DependencyProperty<string>("FilePath")]
+    [DependencyProperty<Animation>("Animation")]
+    [DependencyProperty<bool>("AutoSize")]
+    public partial class LottieView : Control
     {
         #region Constant
         private const string DrawCanvas = "DrawCanvas";
@@ -22,36 +25,8 @@ namespace FluentUI.Design.Controls
         private SKElement _drawCanvas;
         #endregion
 
-        #region DependencyProperty
-        public static readonly DependencyProperty FilePathProperty;
-        public static readonly DependencyProperty AnimationProperty;
-        public static readonly DependencyProperty AutoSizeProperty;
-
-        public string FilePath
-        {
-            get { return (string)GetValue(FilePathProperty); }
-            set { SetValue(FilePathProperty, value); }
-        }
-
-        public Animation Animation
-        {
-            get { return (Animation)GetValue(AnimationProperty); }
-            set { SetValue(AnimationProperty, value); }
-        }
-
-        public bool AutoSize
-        {
-            get { return (bool)GetValue(AutoSizeProperty); }
-            set { SetValue(AutoSizeProperty, value); }
-        }
-        #endregion
-
         static LottieView()
         {
-            FilePathProperty = DependencyProperty.Register(nameof(FilePath), typeof(string), typeof(LottieView), new PropertyMetadata(string.Empty, OnFilePathChanged));
-            AnimationProperty = DependencyProperty.Register(nameof(Animation), typeof(Animation), typeof(LottieView), new PropertyMetadata(null));
-            AutoSizeProperty = DependencyProperty.Register(nameof(AutoSize), typeof(bool), typeof(LottieView), new PropertyMetadata(false));
-
             DefaultStyleKeyProperty.OverrideMetadata(typeof(LottieView), new FrameworkPropertyMetadata(typeof(LottieView)));
         }
 
@@ -73,11 +48,11 @@ namespace FluentUI.Design.Controls
             }
         }
 
-        private static void OnFilePathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        partial void OnFilePathChanged(string oldValue, string newValue)
         {
-            if (d is LottieView lottieView && File.Exists(lottieView.FilePath))
+            if (File.Exists(FilePath))
             {
-                lottieView.LoadAnimation();
+                LoadAnimation();
             }
         }
 

@@ -10,7 +10,15 @@ using System.Windows.Media;
 
 namespace FluentUI.Design.Controls
 {
-    public class NavigationViewItem : Control
+    [DependencyProperty<object>("Icon")]
+    [DependencyProperty<string>("Content")]
+    [DependencyProperty<bool>("IsSelected")]
+    [DependencyProperty<bool>("MenuItemsAny")]
+    [DependencyProperty<bool>("IsExpansion")]
+    [DependencyProperty<ObservableCollection<NavigationViewItem>>("MenuItems")]
+    [DependencyProperty<Thickness>("ItemsMargin")]
+    [DependencyProperty<bool>("IsGroup")]
+    public partial class NavigationViewItem : Control
     {
         #region Constant
         private const string Text = "Text";
@@ -29,69 +37,8 @@ namespace FluentUI.Design.Controls
         private NavigationView _parent;
         #endregion
 
-        #region DependencyProperty
-        public static readonly DependencyProperty IconProperty;
-        public static readonly DependencyProperty ContentProperty;
-        public static readonly DependencyProperty IsSelectedProperty;
-        public static readonly DependencyProperty MenuItemsAnyProperty;
-        public static readonly DependencyProperty IsExpansionProperty;
-        public static readonly DependencyProperty MenuItemsProperty;
-        public static readonly DependencyProperty ItemsMarginProperty;
-        public static readonly DependencyProperty IsGroupProperty;
-
-        public object Icon
-        {
-            get { return GetValue(IconProperty); }
-            set { SetValue(IconProperty, value); }
-        }
-        public string Content
-        {
-            get { return (string)GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
-        }
-        internal bool IsSelected
-        {
-            get { return (bool)GetValue(IsSelectedProperty); }
-            set { SetValue(IsSelectedProperty, value); }
-        }
-        public bool MenuItemsAny
-        {
-            get { return (bool)GetValue(MenuItemsAnyProperty); }
-            set { SetValue(MenuItemsAnyProperty, value); }
-        }
-        public bool IsExpansion
-        {
-            get { return (bool)GetValue(IsExpansionProperty); }
-            set { SetValue(IsExpansionProperty, value); }
-        }
-        public ObservableCollection<NavigationViewItem> MenuItems
-        {
-            get { return (ObservableCollection<NavigationViewItem>)GetValue(MenuItemsProperty); }
-            set { SetValue(MenuItemsProperty, value); }
-        }
-        public Thickness ItemsMargin
-        {
-            get { return (Thickness)GetValue(ItemsMarginProperty); }
-            set { SetValue(ItemsMarginProperty, value); }
-        }
-        public bool IsGroup
-        {
-            get { return (bool)GetValue(IsGroupProperty); }
-            set { SetValue(IsGroupProperty, value); }
-        }
-        #endregion
-
         static NavigationViewItem()
         {
-            IconProperty = DependencyProperty.Register(nameof(Icon), typeof(object), typeof(NavigationViewItem), new PropertyMetadata(null));
-            ContentProperty = DependencyProperty.Register(nameof(Content), typeof(string), typeof(NavigationViewItem), new PropertyMetadata(string.Empty));
-            IsSelectedProperty = DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
-            MenuItemsAnyProperty = DependencyProperty.Register(nameof(MenuItemsAny), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
-            IsExpansionProperty = DependencyProperty.Register(nameof(IsExpansion), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
-            MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationViewItem), new PropertyMetadata(null));
-            ItemsMarginProperty = DependencyProperty.Register(nameof(ItemsMargin), typeof(Thickness), typeof(NavigationViewItem), new PropertyMetadata(new Thickness(0)));
-            IsGroupProperty = DependencyProperty.Register(nameof(IsGroup), typeof(bool), typeof(NavigationViewItem), new PropertyMetadata(false));
-
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NavigationViewItem), new FrameworkPropertyMetadata(typeof(NavigationViewItem)));
         }
 

@@ -9,7 +9,15 @@ using System.Windows.Media.Animation;
 
 namespace FluentUI.Design.Controls
 {
-    public class NavigationView : Control
+    [DependencyProperty<object>("Content")]
+    [DependencyProperty<bool>("IsPaneOpen", defaultCode: "true")]
+    [DependencyProperty<double>("OpenPaneLength", defaultCode: "256d")]
+    [DependencyProperty<double>("CompactPaneLength", defaultCode: "48d")]
+    [DependencyProperty<ObservableCollection<NavigationViewItem>>("MenuItems")]
+    [DependencyProperty<NavigationViewItem>("SelectItem")]
+    [DependencyProperty<bool>("IsSetting", defaultCode: "true")]
+    [DependencyProperty<string>("SettingContent", defaultCode: "\"Setting\"")]
+    public partial class NavigationView : Control
     {
         #region Constant
         private const string Pane = "Pane";
@@ -33,69 +41,8 @@ namespace FluentUI.Design.Controls
         }
         #endregion
 
-        #region DependencyProperty
-        public static readonly DependencyProperty ContentProperty;
-        public static readonly DependencyProperty IsPaneOpenProperty;
-        public static readonly DependencyProperty OpenPaneLengthProperty;
-        public static readonly DependencyProperty CompactPaneLengthProperty;
-        public static readonly DependencyProperty MenuItemsProperty;
-        public static readonly DependencyProperty SelectItemProperty;
-        public static readonly DependencyProperty IsSettingProperty;
-        public static readonly DependencyProperty SettingContentProperty;
-
-        public object Content
-        {
-            get { return GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
-        }
-        public bool IsPaneOpen
-        {
-            get { return (bool)GetValue(IsPaneOpenProperty); }
-            set { SetValue(IsPaneOpenProperty, value); }
-        }
-        public double OpenPaneLength
-        {
-            get { return (double)GetValue(OpenPaneLengthProperty); }
-            set { SetValue(OpenPaneLengthProperty, value); }
-        }
-        public double CompactPaneLength
-        {
-            get { return (double)GetValue(CompactPaneLengthProperty); }
-            set { SetValue(CompactPaneLengthProperty, value); }
-        }
-        public ObservableCollection<NavigationViewItem> MenuItems
-        {
-            get { return (ObservableCollection<NavigationViewItem>)GetValue(MenuItemsProperty); }
-            set { SetValue(MenuItemsProperty, value); }
-        }
-        public NavigationViewItem SelectItem
-        {
-            get { return (NavigationViewItem)GetValue(SelectItemProperty); }
-            set { SetValue(SelectItemProperty, value); }
-        }
-        public bool IsSetting
-        {
-            get { return (bool)GetValue(IsSettingProperty); }
-            set { SetValue(IsSettingProperty, value); }
-        }
-        public string SettingContent
-        {
-            get { return (string)GetValue(SettingContentProperty); }
-            set { SetValue(SettingContentProperty, value); }
-        }
-        #endregion
-
         static NavigationView()
         {
-            ContentProperty = DependencyProperty.Register(nameof(Content), typeof(object), typeof(NavigationView), new PropertyMetadata(null));
-            IsPaneOpenProperty = DependencyProperty.Register(nameof(IsPaneOpen), typeof(bool), typeof(NavigationView), new PropertyMetadata(true, OnIsPaneOpenChanged));
-            OpenPaneLengthProperty = DependencyProperty.Register(nameof(OpenPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(256d));
-            CompactPaneLengthProperty = DependencyProperty.Register(nameof(CompactPaneLength), typeof(double), typeof(NavigationView), new PropertyMetadata(48d));
-            MenuItemsProperty = DependencyProperty.Register(nameof(MenuItems), typeof(ObservableCollection<NavigationViewItem>), typeof(NavigationView), new PropertyMetadata(null));
-            SelectItemProperty = DependencyProperty.Register(nameof(SelectItem), typeof(NavigationViewItem), typeof(NavigationView), new PropertyMetadata(null, OnSelectItemChanged));
-            IsSettingProperty = DependencyProperty.Register(nameof(IsSetting), typeof(bool), typeof(NavigationView), new PropertyMetadata(true));
-            SettingContentProperty = DependencyProperty.Register(nameof(SettingContent), typeof(string), typeof(NavigationView), new PropertyMetadata("Setting"));
-
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NavigationView), new FrameworkPropertyMetadata(typeof(NavigationView)));
         }
 
@@ -117,27 +64,21 @@ namespace FluentUI.Design.Controls
         /// <summary>
         /// Operation width after state switching
         /// </summary>
-        /// <param name="d"></param>
-        /// <param name="e"></param>
-        private static void OnIsPaneOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        /// <param name="oldValue"></param>
+        /// <param name="newValue"></param>
+        partial void OnIsPaneOpenChanged(bool oldValue, bool newValue)
         {
-            if (d is NavigationView navigationView)
-            {
-                navigationView.SetPaneActualWidth();
-            }
+            SetPaneActualWidth();
         }
 
         /// <summary>
         /// Raises the SelectItemChanged routing event
         /// </summary>
-        /// <param name="d"></param>
-        /// <param name="e"></param>
-        private static void OnSelectItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        /// <param name="oldValue"></param>
+        /// <param name="newValue"></param>
+        partial void OnSelectItemChanged(NavigationViewItem oldValue, NavigationViewItem newValue)
         {
-            if (d is NavigationView navigationView)
-            {
-                navigationView.RaiseEvent(new SelectItemChangedEventArgs(navigationView._settingPane == e.NewValue, (NavigationViewItem)e.OldValue, (NavigationViewItem)e.NewValue));
-            }
+            RaiseEvent(new SelectItemChangedEventArgs(_settingPane == newValue, oldValue, newValue));
         }
 
         /// <summary>
