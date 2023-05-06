@@ -1,6 +1,43 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:animations="clr-namespace:FluentUI.Design.Animations">
+
+    <animations:BezierEase x:Key="CurveAccelerateMax"
+                           Point1="1,0"
+                           Point2="1,1" />
+
+    <animations:BezierEase x:Key="CurveAccelerateMid"
+                           Point1="0.7,0"
+                           Point2="1,0.5" />
+
+    <animations:BezierEase x:Key="CurveAccelerateMin"
+                           Point1="0.8,0"
+                           Point2="1,1" />
+
+    <animations:BezierEase x:Key="CurveDecelerateMax"
+                           Point1="0,0"
+                           Point2="0,1" />
+
+    <animations:BezierEase x:Key="CurveDecelerateMid"
+                           Point1="0.1,0.9"
+                           Point2="0.2,1" />
+
+    <animations:BezierEase x:Key="CurveDecelerateMin"
+                           Point1="0.33,0"
+                           Point2="0.1,1" />
+
+    <animations:BezierEase x:Key="CurveEasyEaseMax"
+                           Point1="0.8,0"
+                           Point2="0.1,1" />
+
+    <animations:BezierEase x:Key="CurveEasyEase"
+                           Point1="0.33,0"
+                           Point2="0.67,1" />
+
+    <animations:BezierEase x:Key="CurveLinear"
+                           Point1="0,0"
+                           Point2="1,1" />
 
     <Duration x:Key="DurationUltraFast">0:0:0.05</Duration>
     <Duration x:Key="DurationFaster">0:0:0.1</Duration>

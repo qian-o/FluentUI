@@ -18,30 +18,36 @@
                                     <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
                                                      From="1"
                                                      To="0.5"
-                                                     Duration="{StaticResource DurationFast}" />
+                                                     Duration="{StaticResource DurationFast}"
+                                                     EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
                                                      From="1"
                                                      To="0.5"
-                                                     Duration="{StaticResource DurationFast}" />
+                                                     Duration="{StaticResource DurationFast}"
+                                                     EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     <DoubleAnimation Storyboard.TargetName="FrameContent"
                                                      Storyboard.TargetProperty="Opacity"
                                                      From="1"
                                                      To="0"
-                                                     Duration="{StaticResource DurationFast}" />
+                                                     Duration="{StaticResource DurationFast}"
+                                                     EasingFunction="{StaticResource CurveAccelerateMin}" />
                                 </Storyboard>
                                 <Storyboard x:Key="ExcessivePageShow">
                                     <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
                                                      From="1.2"
                                                      To="1"
-                                                     Duration="{StaticResource DurationFast}" />
+                                                     Duration="{StaticResource DurationFast}"
+                                                     EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
                                                      From="1.2"
                                                      To="1"
-                                                     Duration="{StaticResource DurationFast}" />
+                                                     Duration="{StaticResource DurationFast}"
+                                                     EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     <DoubleAnimation Storyboard.TargetProperty="Opacity"
                                                      From="0"
                                                      To="1"
-                                                     Duration="{StaticResource DurationFast}" />
+                                                     Duration="{StaticResource DurationFast}"
+                                                     EasingFunction="{StaticResource CurveAccelerateMin}" />
                                 </Storyboard>
                             </Frame.Resources>
                             <Frame.RenderTransform>

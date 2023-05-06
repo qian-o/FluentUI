@@ -1,6 +1,5 @@
 ﻿using FluentUI.Design.Tools;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace FluentUI.Design.Controls
 {
@@ -8,7 +7,7 @@ namespace FluentUI.Design.Controls
     [DependencyProperty<bool>("IsOn")]
     [DependencyProperty<object>("OffContent", defaultCode: "\"Off\"")]
     [DependencyProperty<object>("OnContent", defaultCode: "\"On\"")]
-    public partial class ToggleSwitch : Control
+    public partial class ToggleSwitch : CaptureControl
     {
         static ToggleSwitch()
         {
@@ -17,7 +16,8 @@ namespace FluentUI.Design.Controls
 
         public ToggleSwitch()
         {
-            this.AddPointerUpHandler((a, b) => IsOn = !IsOn);
+            this.AddPointerDownHandler((a, b) => CaptureMouse());
+            this.AddPointerUpHandler((a, b) => { ReleaseMouseCapture(); IsOn = !IsOn; });
         }
     }
 }

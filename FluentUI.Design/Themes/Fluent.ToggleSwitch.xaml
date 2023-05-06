@@ -85,7 +85,7 @@
                                         </MultiBinding.Bindings>
                                     </MultiBinding>
                                 </Grid.Margin>
-                                
+
                                 <ContentPresenter x:Name="Off"
                                                   Content="{TemplateBinding OffContent}" />
 
@@ -104,7 +104,8 @@
                                         <DoubleAnimation Storyboard.TargetName="Tab"
                                                          Storyboard.TargetProperty="RenderTransform.X"
                                                          To="20"
-                                                         Duration="{StaticResource DurationNormal}" />
+                                                         Duration="{StaticResource DurationNormal}"
+                                                         EasingFunction="{StaticResource CurveEasyEase}" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -113,11 +114,12 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="Tab"
                                                          Storyboard.TargetProperty="RenderTransform.X"
-                                                         Duration="{StaticResource DurationNormal}" />
+                                                         Duration="{StaticResource DurationNormal}"
+                                                         EasingFunction="{StaticResource CurveEasyEase}" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
-                            
+
                             <Setter TargetName="Main"
                                     Property="Background"
                                     Value="{DynamicResource BrushCompoundBrandBackground}" />
@@ -138,6 +140,32 @@
                                     Property="Visibility"
                                     Value="Visible" />
                         </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsOn"
+                                           Value="True" />
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                            </MultiTrigger.Conditions>
+
+                            <Setter TargetName="Main"
+                                    Property="Background"
+                                    Value="{DynamicResource BrushCompoundBrandBackgroundHover}" />
+                        </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsOn"
+                                           Value="True" />
+                                <Condition Property="IsMouseCaptured"
+                                           Value="True" />
+                            </MultiTrigger.Conditions>
+
+                            <Setter TargetName="Main"
+                                    Property="Background"
+                                    Value="{DynamicResource BrushCompoundBrandBackgroundPressed}" />
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

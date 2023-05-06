@@ -117,7 +117,8 @@
                                                          Storyboard.TargetProperty="RenderTransform.ScaleY"
                                                          From="0"
                                                          To="1"
-                                                         Duration="{StaticResource DurationUltraFast}" />
+                                                         Duration="{StaticResource DurationUltraFast}"
+                                                         EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -128,7 +129,8 @@
                                                          Storyboard.TargetProperty="RenderTransform.ScaleY"
                                                          From="1"
                                                          To="0"
-                                                         Duration="{StaticResource DurationUltraFast}" />
+                                                         Duration="{StaticResource DurationUltraFast}"
+                                                         EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
@@ -147,11 +149,13 @@
                                         <DoubleAnimation Storyboard.TargetName="Arrow"
                                                          Storyboard.TargetProperty="RenderTransform.Angle"
                                                          To="180"
-                                                         Duration="{StaticResource DurationUltraFast}" />
+                                                         Duration="{StaticResource DurationUltraFast}"
+                                                         EasingFunction="{StaticResource CurveAccelerateMin}" />
                                         <DoubleAnimation Storyboard.TargetName="Items"
                                                          Storyboard.TargetProperty="LayoutTransform.ScaleY"
                                                          To="1"
-                                                         Duration="{StaticResource DurationUltraFast}" />
+                                                         Duration="{StaticResource DurationUltraFast}"
+                                                         EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -161,11 +165,13 @@
                                         <DoubleAnimation Storyboard.TargetName="Arrow"
                                                          Storyboard.TargetProperty="RenderTransform.Angle"
                                                          To="0"
-                                                         Duration="{StaticResource DurationUltraFast}" />
+                                                         Duration="{StaticResource DurationUltraFast}"
+                                                         EasingFunction="{StaticResource CurveAccelerateMin}" />
                                         <DoubleAnimation Storyboard.TargetName="Items"
                                                          Storyboard.TargetProperty="LayoutTransform.ScaleY"
                                                          To="0"
-                                                         Duration="{StaticResource DurationUltraFast}" />
+                                                         Duration="{StaticResource DurationUltraFast}"
+                                                         EasingFunction="{StaticResource CurveAccelerateMin}" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
