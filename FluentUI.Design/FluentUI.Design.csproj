@@ -9,12 +9,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.2.206-beta" />
-		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
-		<PackageReference Include="SkiaSharp.Skottie" Version="2.88.3" />
-		<PackageReference Include="SkiaSharp.Views.WPF" Version="2.88.3" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+		<PackageReference Include="SkiaSharp.Skottie" Version="2.88.7" />
+		<PackageReference Include="SkiaSharp.Views.WPF" Version="2.88.7" />
 	</ItemGroup>
 
 	<ItemGroup>
