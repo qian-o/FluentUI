@@ -1,5 +1,4 @@
-﻿using System;
-using FluentUI.Design.Controls;
+﻿using FluentUI.Design.Controls;
 
 namespace FluentUI.Demo
 {
@@ -8,11 +7,6 @@ namespace FluentUI.Demo
         public MainWindow()
         {
             InitializeComponent();
-
-            Console.WriteLine("Hello, FluentUI!");
-
-            // Set the title of the window
-            Title = "FluentUI Demo";
         }
     }
 }
