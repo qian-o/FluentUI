@@ -10,6 +10,9 @@ namespace FluentUI.Demo
             InitializeComponent();
 
             Console.WriteLine("Hello, FluentUI!");
+
+            // Set the title of the window
+            Title = "FluentUI Demo";
         }
     }
 }
