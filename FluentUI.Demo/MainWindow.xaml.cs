@@ -7,6 +7,9 @@ namespace FluentUI.Demo
         public MainWindow()
         {
             InitializeComponent();
+
+            // Set the title of the window
+            Title = "FluentUI Demo";
         }
     }
 }
