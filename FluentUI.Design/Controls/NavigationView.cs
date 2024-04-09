@@ -1,11 +1,11 @@
-﻿using FluentUI.Design.Models;
-using FluentUI.Design.Tools;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media.Animation;
+using FluentUI.Design.Models;
+using FluentUI.Design.Tools;
 
 namespace FluentUI.Design.Controls
 {
@@ -48,7 +48,7 @@ namespace FluentUI.Design.Controls
 
         public NavigationView()
         {
-            MenuItems = new ObservableCollection<NavigationViewItem>();
+            MenuItems = [];
         }
 
         public override void OnApplyTemplate()

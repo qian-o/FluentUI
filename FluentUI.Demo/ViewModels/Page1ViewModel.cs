@@ -1,10 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Windows.Media.Animation;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using FluentUI.Demo.Models.Messages;
 using FluentUI.Demo.Views;
 using FluentUI.Design.Models;
-using System.Windows.Media.Animation;
 
 namespace FluentUI.Demo.ViewModels
 {

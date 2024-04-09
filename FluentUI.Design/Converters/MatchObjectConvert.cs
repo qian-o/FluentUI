@@ -12,6 +12,7 @@ namespace FluentUI.Design.Converters
             {
                 return false;
             }
+
             return value.Equals(parameter);
         }
 

@@ -1,6 +1,6 @@
-﻿using FluentUI.Design.Tools;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
+using FluentUI.Design.Tools;
 
 namespace FluentUI.Design.Controls;
 

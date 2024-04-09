@@ -1,8 +1,8 @@
-﻿using FluentUI.Demo.ViewModels;
+﻿using System.Windows;
+using FluentUI.Demo.ViewModels;
 using FluentUI.Demo.Views;
 using FluentUI.Design;
 using Microsoft.Extensions.DependencyInjection;
-using System.Windows;
 
 namespace FluentUI.Demo
 {
@@ -12,23 +12,23 @@ namespace FluentUI.Demo
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            Core.Initialize(services =>
-            {
-                services.AddSingleton<ShellPage>();
-                services.AddSingleton<ShellViewModel>();
+            //Core.Initialize(services =>
+            //{
+            //    services.AddSingleton<ShellPage>();
+            //    services.AddSingleton<ShellViewModel>();
 
-                services.AddSingleton<Page1>();
-                services.AddSingleton<Page1ViewModel>();
+            //    services.AddSingleton<Page1>();
+            //    services.AddSingleton<Page1ViewModel>();
 
-                services.AddSingleton<Page2>();
-                services.AddSingleton<Page2ViewModel>();
+            //    services.AddSingleton<Page2>();
+            //    services.AddSingleton<Page2ViewModel>();
 
-                services.AddSingleton<SettingPage>();
-                services.AddSingleton<SettingViewModel>();
-            });
+            //    services.AddSingleton<SettingPage>();
+            //    services.AddSingleton<SettingViewModel>();
+            //});
 
-            MainWindow.FrameContent.PageContent = Core.GetService<ShellPage>();
-            MainWindow.Show();
+            //MainWindow.FrameContent.PageContent = Core.GetService<ShellPage>();
+            //MainWindow.Show();
         }
     }
 }

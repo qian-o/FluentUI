@@ -1,12 +1,12 @@
-﻿using FluentUI.Design.Converters;
-using FluentUI.Design.Tools;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using FluentUI.Design.Converters;
+using FluentUI.Design.Tools;
 
 namespace FluentUI.Design.Controls
 {
@@ -44,7 +44,7 @@ namespace FluentUI.Design.Controls
 
         public NavigationViewItem()
         {
-            MenuItems = new ObservableCollection<NavigationViewItem>();
+            MenuItems = [];
             MenuItems.CollectionChanged += MenuItems_CollectionChanged;
         }
 

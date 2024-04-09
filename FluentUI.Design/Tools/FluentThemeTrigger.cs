@@ -1,6 +1,6 @@
-﻿using FluentUI.Design.Enums;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Data;
+using FluentUI.Design.Enums;
 
 namespace FluentUI.Design.Tools
 {
@@ -22,6 +22,7 @@ namespace FluentUI.Design.Tools
                 GenerateProperty();
             }
         }
+        
         /// <summary>
         /// Theme
         /// </summary>

@@ -1,5 +1,5 @@
-﻿using FluentUI.Design.Tools;
-using System.Windows;
+﻿using System.Windows;
+using FluentUI.Design.Tools;
 
 namespace FluentUI.Design.Controls
 {

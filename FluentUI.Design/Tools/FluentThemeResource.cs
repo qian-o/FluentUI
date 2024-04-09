@@ -1,7 +1,7 @@
-﻿using FluentUI.Design.Enums;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows;
+using FluentUI.Design.Enums;
 
 namespace FluentUI.Design.Tools
 {

@@ -1,14 +1,14 @@
-﻿using FluentUI.Design.Enums;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Controls;
+using FluentUI.Design.Enums;
 using FluentUI.Design.Models;
 using FluentUI.Design.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Win32;
-using System;
-using System.Linq;
-using System.Reflection;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace FluentUI.Design
 {

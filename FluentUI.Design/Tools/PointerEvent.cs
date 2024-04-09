@@ -1,13 +1,13 @@
-﻿using FluentUI.Design.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
+using FluentUI.Design.Models;
 
 namespace FluentUI.Design.Tools
 {
     public static class PointerEvent
     {
-        private static readonly List<PointerEventModel> pointerUpEvents = new();
-        private static readonly List<PointerEventModel> pointerDownEvents = new();
+        private static readonly List<PointerEventModel> pointerUpEvents = [];
+        private static readonly List<PointerEventModel> pointerDownEvents = [];
 
         #region PointerUp
         public static readonly RoutedEvent PointerUpEvent = EventManager.RegisterRoutedEvent("PointerUp", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(UIElement));

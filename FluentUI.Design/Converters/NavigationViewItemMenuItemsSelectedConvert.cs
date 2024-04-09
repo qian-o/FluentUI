@@ -1,8 +1,8 @@
-﻿using FluentUI.Design.Controls;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using FluentUI.Design.Controls;
 
 namespace FluentUI.Design.Converters
 {
