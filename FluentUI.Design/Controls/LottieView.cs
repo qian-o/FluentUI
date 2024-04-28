@@ -1,13 +1,13 @@
-﻿using SkiaSharp;
-using SkiaSharp.Skottie;
-using SkiaSharp.Views.Desktop;
-using SkiaSharp.Views.WPF;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using SkiaSharp;
+using SkiaSharp.Skottie;
+using SkiaSharp.Views.Desktop;
+using SkiaSharp.Views.WPF;
 
 namespace FluentUI.Design.Controls
 {

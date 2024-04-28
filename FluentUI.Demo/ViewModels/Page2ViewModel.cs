@@ -1,11 +1,11 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using System.IO;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using FluentUI.Demo.Models.Messages;
 using FluentUI.Demo.Views;
 using FluentUI.Design.Models;
-using System;
-using System.IO;
 
 namespace FluentUI.Demo.ViewModels
 {

@@ -16,13 +16,13 @@ namespace FluentUI.Design.Converters
         {
             if (value is Thickness thickness)
             {
-                return new object[]
-                {
+                return
+                [
                     thickness.Left,
                     thickness.Top,
                     thickness.Right,
                     thickness.Bottom
-                };
+                ];
             }
             return null;
         }

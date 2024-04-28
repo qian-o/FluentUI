@@ -1,4 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using FluentUI.Demo.Models.Messages;
@@ -6,18 +11,13 @@ using FluentUI.Demo.Views;
 using FluentUI.Design;
 using FluentUI.Design.Controls;
 using FluentUI.Design.Models;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace FluentUI.Demo.ViewModels
 {
     public partial class ShellViewModel : BaseViewModel<ShellPage>
     {
         [ObservableProperty]
-        private ObservableCollection<NavigationViewItem> pages = new();
+        private ObservableCollection<NavigationViewItem> pages = [];
 
         [ObservableProperty]
         private NavigationViewItem selected;

@@ -7,7 +7,9 @@ namespace FluentUI.Design.Models
     public class PointerEventModel
     {
         public RoutedEventHandler EventHandler { get; set; }
+
         public MouseButtonEventHandler MouseButtonEvent { get; set; }
+
         public EventHandler<TouchEventArgs> TouchEvent { get; set; }
 
         public static PointerEventModel Instance(RoutedEventHandler handler)

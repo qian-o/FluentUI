@@ -1,8 +1,8 @@
-﻿using FluentUI.Demo.ViewModels;
+﻿using System.Windows;
+using FluentUI.Demo.ViewModels;
 using FluentUI.Demo.Views;
 using FluentUI.Design;
 using Microsoft.Extensions.DependencyInjection;
-using System.Windows;
 
 namespace FluentUI.Demo
 {

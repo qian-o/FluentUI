@@ -9,13 +9,13 @@ namespace FluentUI.Design.Animations;
 [DependencyProperty<Point>("Point2")]
 public partial class BezierEase : EasingFunctionBase
 {
-    private readonly Point[] _controlPoints = new Point[4]
-    {
+    private readonly Point[] _controlPoints =
+    [
         new Point(0, 0),
         new Point(0.5, 0.5),
         new Point(0.5, 0.5),
         new Point(1, 1)
-    };
+    ];
 
     partial void OnPoint1Changed(Point oldValue, Point newValue)
     {
