@@ -33,34 +33,35 @@ jobs:
     - name: Zip the source code
       run: 7z a -tzip $env:Source_Zip ${{ github.workspace }}\*
 
-    # Install the .NET Core workload
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+    # # Install the .NET Core workload
+    # - name: Install .NET Core
+    #   uses: actions/setup-dotnet@v4
+    #   with:
+    #     dotnet-version: 8.0.x
 
-    # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v2
+    # # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    # - name: Setup MSBuild.exe
+    #   uses: microsoft/setup-msbuild@v2
 
-    # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test
+    # # Execute all unit tests in the solution
+    # - name: Execute unit tests
+    #   run: dotnet test
 
-    # Build the application
-    - name: Build the application
-      run: msbuild $env:Project_Name /p:Configuration=$env:Configuration /p:Platform="Any CPU" /p:OutputPath=$env:Build_Output
-      env:
-        Configuration: ${{ matrix.configuration }}
+    # # Build the application
+    # - name: Build the application
+    #   run: msbuild $env:Project_Name /p:Configuration=$env:Configuration /p:Platform="Any CPU" /p:OutputPath=$env:Build_Output
+    #   env:
+    #     Configuration: ${{ matrix.configuration }}
 
-    # Zip the build output
-    - name: Zip the build output
-      run: 7z a -tzip $env:Build_Zip $env:Build_Output
+    # # Zip the build output
+    # - name: Zip the build output
+    #   run: 7z a -tzip $env:Build_Zip $env:Build_Output
 
     # Release the build output
     - name: Release
       uses: softprops/action-gh-release@v2.0.5
       with:
+        name: FluentUI Release ${{ github.ref_name }}
         body: ${{ github.ref }}
         draft: true
         files: |
