@@ -18,7 +18,7 @@ jobs:
     
     env:
       Solution_Name: FluentUI.sln
-      Project_Name: FluentUI\FluentUI.Design.csproj
+      Project_Name: FluentUI.Design\FluentUI.Design.csproj
       Build_Output: ${{ github.workspace }}\FluentUI_${{ matrix.configuration }}
       Zip_Output: ${{ github.workspace }}\FluentUI_${{ matrix.configuration }}.zip
 
