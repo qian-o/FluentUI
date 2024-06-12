@@ -65,4 +65,4 @@ jobs:
         body: ${{ github.ref }}
         draft: true
         files: |
-          ${{ github.workspace }}\Publish\
+          ${{ github.workspace }}\Publish\*
