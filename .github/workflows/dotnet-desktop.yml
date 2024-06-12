@@ -1,0 +1,66 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Release]
+
+    runs-on: windows-latest
+    
+    env:
+      Solution_Name: FluentUI.sln
+      Build_Output: ${{ github.workspace }}\FluentUI_${{ matrix.configuration }}
+      Zip_Output: ${{ github.workspace }}\FluentUI_${{ matrix.configuration }}.zip
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
+
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test
+
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    # Build the application
+    - name: Build the application
+      run: msbuild $env:Solution_Name /t:Build /p:Configuration=$env:Configuration /p:OutputPath=$env:Build_Output
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    # Zip the build output
+    - name: Zip the build output
+      run: 7z a -tzip $env:Zip_Output $env:Build_Output
+
+    # Release the build output
+    - name: Release
+      uses: softprops/action-gh-release@v2.0.5
+      with:
+        body: ${{ github.ref }}
+        draft: true
+        files: $env:Zip_Output
