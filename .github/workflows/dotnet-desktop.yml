@@ -55,7 +55,7 @@ jobs:
 
     # Zip the build output
     - name: Zip the build output
-      run: 7z a -tzip $env:Zip_Output $env:Build_Output
+      run: 7z a -tzip $env:Build_Zip $env:Build_Output
 
     # Release the build output
     - name: Release
