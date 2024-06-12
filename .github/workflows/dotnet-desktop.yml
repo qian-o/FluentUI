@@ -18,6 +18,7 @@ jobs:
     
     env:
       Solution_Name: FluentUI.sln
+      Project_Name: FluentUI.Design.csproj
       Build_Output: ${{ github.workspace }}\FluentUI_${{ matrix.configuration }}
       Zip_Output: ${{ github.workspace }}\FluentUI_${{ matrix.configuration }}.zip
 
@@ -49,7 +50,7 @@ jobs:
 
     # Build the application
     - name: Build the application
-      run: msbuild $env:Solution_Name /t:Build /p:Configuration=$env:Configuration /p:OutputPath=$env:Build_Output
+      run: msbuild $env:Project_Name /p:Configuration=$env:Configuration /p:Platform="Any CPU"
       env:
         Configuration: ${{ matrix.configuration }}
 
