@@ -27,8 +27,8 @@ namespace FluentUI.Demo
                 services.AddSingleton<SettingViewModel>();
             });
 
-            MainWindow.FrameContent.PageContent = Core.GetService<ShellPage>();
-            MainWindow.Show();
+            //MainWindow.FrameContent.PageContent = Core.GetService<ShellPage>();
+            //MainWindow.Show();
         }
     }
 }
