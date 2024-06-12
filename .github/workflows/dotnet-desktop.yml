@@ -50,7 +50,7 @@ jobs:
 
     # Build the application
     - name: Build the application
-      run: msbuild $env:Project_Name /p:Configuration=$env:Configuration /p:Platform="Any CPU"
+      run: msbuild $env:Project_Name /p:Configuration=$env:Configuration /p:Platform="Any CPU" /p:OutputPath=$env:Build_Output
       env:
         Configuration: ${{ matrix.configuration }}
 
