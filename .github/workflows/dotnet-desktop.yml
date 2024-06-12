@@ -64,4 +64,5 @@ jobs:
       with:
         body: ${{ github.ref }}
         draft: true
-        files: Build\*.zip
+        files: |
+          $env:Zip_Output
