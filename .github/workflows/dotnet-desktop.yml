@@ -1,9 +1,72 @@
+# name: .NET Core Desktop
+
+# # on:
+# #   push:
+# #     tags:
+# #      - 'v*'
+
+# jobs:
+
+#   build:
+
+#     strategy:
+#       matrix:
+#         configuration: [Release]
+
+#     runs-on: windows-latest
+    
+#     env:
+#       Solution_Name: FluentUI.sln
+#       Project_Name: FluentUI.Design\FluentUI.Design.csproj
+#       Build_Output: ${{ github.workspace }}\Build\FluentUI\
+#       Build_Zip: ${{ github.workspace }}\Publish\FluentUI.zip
+
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v4
+#       with:
+#         fetch-depth: 0
+
+#     # # Install the .NET Core workload
+#     # - name: Install .NET Core
+#     #   uses: actions/setup-dotnet@v4
+#     #   with:
+#     #     dotnet-version: 8.0.x
+
+#     # # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+#     # - name: Setup MSBuild.exe
+#     #   uses: microsoft/setup-msbuild@v2
+
+#     # # Execute all unit tests in the solution
+#     # - name: Execute unit tests
+#     #   run: dotnet test
+
+#     # # Build the application
+#     # - name: Build the application
+#     #   run: msbuild $env:Project_Name /p:Configuration=$env:Configuration /p:Platform="Any CPU" /p:OutputPath=$env:Build_Output
+#     #   env:
+#     #     Configuration: ${{ matrix.configuration }}
+
+#     # # Zip the build output
+#     # - name: Zip the build output
+#     #   run: 7z a -tzip $env:Build_Zip $env:Build_Output
+
+#     # Release the build output
+#     - name: Release
+#       uses: softprops/action-gh-release@v2.0.5
+#       if: startsWith(github.ref, 'refs/tags/')
+#       with:
+#         draft: true
+#         files: |
+#           ./Publish/*.zip
+
 name: .NET Core Desktop
 
 on:
   push:
-    tags:
-     - 'v*'
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
 
@@ -16,10 +79,9 @@ jobs:
     runs-on: windows-latest
     
     env:
-      Solution_Name: FluentUI.sln
       Project_Name: FluentUI.Design\FluentUI.Design.csproj
-      Build_Output: ${{ github.workspace }}\Build\FluentUI\
-      Build_Zip: ${{ github.workspace }}\Publish\FluentUI.zip
+      Build_Path: ${{ github.workspace }}\Build\FluentUI
+      Publish_Path: ${{ github.workspace }}\Publish
 
     steps:
     - name: Checkout
@@ -27,34 +89,33 @@ jobs:
       with:
         fetch-depth: 0
 
-    # # Install the .NET Core workload
-    # - name: Install .NET Core
-    #   uses: actions/setup-dotnet@v4
-    #   with:
-    #     dotnet-version: 8.0.x
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
 
-    # # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    # - name: Setup MSBuild.exe
-    #   uses: microsoft/setup-msbuild@v2
+    # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
 
-    # # Execute all unit tests in the solution
-    # - name: Execute unit tests
-    #   run: dotnet test
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test
 
-    # # Build the application
-    # - name: Build the application
-    #   run: msbuild $env:Project_Name /p:Configuration=$env:Configuration /p:Platform="Any CPU" /p:OutputPath=$env:Build_Output
-    #   env:
-    #     Configuration: ${{ matrix.configuration }}
+    # Build the application
+    - name: Build the application
+      run: msbuild $env:Project_Name /t:Build /p:Configuration=$env:Configuration /p:OutputPath=$env:Build_Path
+      env:
+        Configuration: ${{ matrix.configuration }}
 
-    # # Zip the build output
-    # - name: Zip the build output
-    #   run: 7z a -tzip $env:Build_Zip $env:Build_Output
+    # Zip the build output
+    - name: Zip the build output
+      run: 7z a -tzip $env:Publish_Path\FluentUI.zip $env:Build_Path
 
     # Release the build output
     - name: Release
       uses: softprops/action-gh-release@v2.0.5
-      if: startsWith(github.ref, 'refs/tags/')
       with:
         draft: true
         files: |
