@@ -19,7 +19,7 @@ jobs:
     env:
       Solution_Name: FluentUI.sln
       Project_Name: FluentUI.Design\FluentUI.Design.csproj
-      Build_Output: ${{ github.workspace }}\FluentUI
+      Build_Output: ${{ github.workspace }}\Build\
       Zip_Output: ${{ github.workspace }}\FluentUI.zip
 
     steps:
