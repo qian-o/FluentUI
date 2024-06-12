@@ -19,24 +19,19 @@ jobs:
     env:
       Solution_Name: FluentUI.sln
       Project_Name: FluentUI.Design\FluentUI.Design.csproj
-      Source_Output: ${{ github.workspace }}\Output\Source\
-      Build_Output: ${{ github.workspace }}\Output\FluentUI\
+      Build_Output: ${{ github.workspace }}\Build\FluentUI.Design\
       Source_Zip: ${{ github.workspace }}\Output\Source.zip
-      Build_Zip: ${{ github.workspace }}\Output\FluentUI.zip
+      Build_Zip: ${{ github.workspace }}\Output\FluentUI.Design.zip
 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-
-    # Copy the source code to the output directory
-    - name: Copy source code
-      run: cp -r $env:GITHUB_WORKSPACE\* $env:Source_Output
-
+        
     # Zip the source code
-    - name: Zip source code
-      run: 7z a -tzip $env:Source_Zip $env:Source_Output
+    - name: Zip the source code
+      run: 7z a -tzip $env:Source_Zip ${{ github.workspace }}\*
 
     # Install the .NET Core workload
     - name: Install .NET Core
