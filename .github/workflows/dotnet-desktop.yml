@@ -19,7 +19,6 @@ jobs:
       Solution_Name: FluentUI.sln
       Project_Name: FluentUI.Design\FluentUI.Design.csproj
       Build_Output: ${{ github.workspace }}\Build\FluentUI\
-      Source_Zip: ${{ github.workspace }}\Publish\Source.zip
       Build_Zip: ${{ github.workspace }}\Publish\FluentUI.zip
 
     steps:
@@ -28,10 +27,6 @@ jobs:
       with:
         fetch-depth: 0
         
-    # Zip the source code
-    - name: Zip the source code
-      run: 7z a -tzip $env:Source_Zip ${{ github.workspace }}\*
-
     # # Install the .NET Core workload
     # - name: Install .NET Core
     #   uses: actions/setup-dotnet@v4
@@ -59,10 +54,11 @@ jobs:
     # Release the build output
     - name: Release
       uses: softprops/action-gh-release@v2.0.5
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         tag_name: ${{ github.ref }}
         name: Release ${{ github.ref }}
-        body: TODO New Release.
+        body: ${{ github.ref_name }}
         draft: true
         files: |
           ./Publish/*.zip
