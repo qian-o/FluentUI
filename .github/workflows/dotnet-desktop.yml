@@ -19,8 +19,10 @@ jobs:
     env:
       Solution_Name: FluentUI.sln
       Project_Name: FluentUI.Design\FluentUI.Design.csproj
-      Build_Output: ${{ github.workspace }}\Build\
-      Zip_Output: ${{ github.workspace }}\Publish\FluentUI.zip
+      Source_Output: ${{ github.workspace }}\Output\Source\
+      Build_Output: ${{ github.workspace }}\Output\FluentUI\
+      Source_Zip: ${{ github.workspace }}\Output\Source.zip
+      Build_Zip: ${{ github.workspace }}\Output\FluentUI.zip
 
     steps:
     - name: Checkout
@@ -28,25 +30,27 @@ jobs:
       with:
         fetch-depth: 0
 
+    # Copy the source code to the output directory
+    - name: Copy source code
+      run: cp -r $env:GITHUB_WORKSPACE\* $env:Source_Output
+
+    # Zip the source code
+    - name: Zip source code
+      run: 7z a -tzip $env:Source_Zip $env:Source_Output
+
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    # Add MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: dotnet test
-
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
 
     # Build the application
     - name: Build the application
@@ -65,4 +69,4 @@ jobs:
         body: ${{ github.ref }}
         draft: true
         files: |
-          ./Publish/*.zip
+          ./Output/*.zip
