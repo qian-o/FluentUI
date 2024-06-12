@@ -2,9 +2,8 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    tags:
+     - 'v*'
 
 jobs:
 
@@ -61,8 +60,9 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2.0.5
       with:
-        name: FluentUI Release ${{ github.ref_name }}
-        body: ${{ github.ref }}
+        tag_name: ${{ github.ref }}
+        name: Release ${{ github.ref }}
+        body: TODO New Release.
         draft: true
         files: |
           ./Publish/*.zip
