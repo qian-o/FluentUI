@@ -19,9 +19,9 @@ jobs:
     env:
       Solution_Name: FluentUI.sln
       Project_Name: FluentUI.Design\FluentUI.Design.csproj
-      Build_Output: ${{ github.workspace }}\Build\FluentUI.Design\
-      Source_Zip: ${{ github.workspace }}\Output\Source.zip
-      Build_Zip: ${{ github.workspace }}\Output\FluentUI.Design.zip
+      Build_Output: ${{ github.workspace }}\Build\FluentUI\
+      Source_Zip: ${{ github.workspace }}\Publish\Source.zip
+      Build_Zip: ${{ github.workspace }}\Publish\FluentUI.zip
 
     steps:
     - name: Checkout
@@ -64,4 +64,4 @@ jobs:
         body: ${{ github.ref }}
         draft: true
         files: |
-          ./Output/*.zip
+          ./Publish/*.zip
